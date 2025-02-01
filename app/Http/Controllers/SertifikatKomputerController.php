@@ -42,72 +42,60 @@ class SertifikatKomputerController extends Controller
 
     function create($id)
     {
-        $sql = Komputer::findOrFail($id);
+        $data = Komputer::findOrFail($id);
 
-        return view('admin.sertifikat.komputer.tambah', ['data' => $sql]);
+        return view('admin.sertifikat.komputer.tambah', ['data' => $data]);
     }
 
     function store(TambahSertifikatRequest $request)
     {
         $request->validated();
-        $sql = SertifikatKomputer::create($request->all());
+        SertifikatKomputer::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/sertifikat/komputer');
     }
 
     function edit($id)
     {
-        $sql = SertifikatKomputer::findOrFail($id);
-        return view('admin.sertifikat.komputer.edit', ['data' => $sql]);
+        $data = SertifikatKomputer::findOrFail($id);
+        return view('admin.sertifikat.komputer.edit', ['data' => $data]);
     }
 
     function update(EditSertifikatRequest $request, $id)
     {
         $request->validated();
         $sql = SertifikatKomputer::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/sertifikat/komputer');
     }
 
     function delete($id)
     {
-        $sql = SertifikatKomputer::findOrFail($id);
-        return view('admin.sertifikat.komputer.hapus', ['data' => $sql]);
+        $data = SertifikatKomputer::findOrFail($id);
+        return view('admin.sertifikat.komputer.hapus', ['data' => $data]);
     }
 
     function destroy($id)
     {
         $sql = SertifikatKomputer::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/sertifikat/komputer');
     }
 
     function cetak_sertifikat($id)
     {
-        $sql = SertifikatKomputer::findOrFail($id);
-        return view('admin.sertifikat.komputer.cetak-sertifikat', ['data' => $sql]);
+        $data = SertifikatKomputer::findOrFail($id);
+        return view('admin.sertifikat.komputer.cetak-sertifikat', ['data' => $data]);
     }
 
     function cetak_nilai($id)
     {
-        $sql = SertifikatKomputer::findOrFail($id);
-        return view('admin.sertifikat.komputer.cetak-nilai', ['data' => $sql]);
+        $data = SertifikatKomputer::findOrFail($id);
+        return view('admin.sertifikat.komputer.cetak-nilai', ['data' => $data]);
     }
 }

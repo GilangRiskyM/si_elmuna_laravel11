@@ -7,7 +7,6 @@ use App\Http\Requests\TambahKuitansiRequest;
 use App\Models\Masuk;
 use App\Models\Kuitansi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class KuitansiController extends Controller
 {
@@ -44,13 +43,9 @@ class KuitansiController extends Controller
     function store(TambahKuitansiRequest $request)
     {
         $request->validated();
-        $sql = Kuitansi::create($request->all());
+        Kuitansi::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Kuitansi Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/kuitansi');
     }
 
@@ -64,13 +59,9 @@ class KuitansiController extends Controller
     {
         $request->validated();
         $sql = Kuitansi::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Kuitansi Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/kuitansi');
     }
 
@@ -89,13 +80,9 @@ class KuitansiController extends Controller
     function destroy($id)
     {
         $sql = Kuitansi::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Kuitansi Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/kuitansi');
     }
 }

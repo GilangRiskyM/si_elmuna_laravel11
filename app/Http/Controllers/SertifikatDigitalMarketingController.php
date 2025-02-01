@@ -42,40 +42,32 @@ class SertifikatDigitalMarketingController extends Controller
 
     function create($id)
     {
-        $sql = DigitalMarketing::findOrFail($id);
-        return view('admin.sertifikat.digital_marketing.tambah', ['data' => $sql]);
+        $data = DigitalMarketing::findOrFail($id);
+        return view('admin.sertifikat.digital_marketing.tambah', ['data' => $data]);
     }
 
     function store(TambahSertifikatRequest $request)
     {
         $request->validated();
-        $sql = SertifikatDigitalMarketing::create($request->all());
+        SertifikatDigitalMarketing::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/sertifikat/desain-grafis');
     }
 
     function edit($id)
     {
-        $sql = SertifikatDigitalMarketing::findOrFail($id);
-        return view('admin.sertifikat.digital_marketing.edit', ['data' => $sql]);
+        $data = SertifikatDigitalMarketing::findOrFail($id);
+        return view('admin.sertifikat.digital_marketing.edit', ['data' => $data]);
     }
 
     function update(EditSertifikatRequest $request, $id)
     {
         $request->validated();
         $sql = SertifikatDigitalMarketing::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/sertifikat/desain-grafis');
     }
 
@@ -88,13 +80,9 @@ class SertifikatDigitalMarketingController extends Controller
     function destroy($id)
     {
         $sql = SertifikatDigitalMarketing::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/sertifikat/desain-grafis');
     }
 

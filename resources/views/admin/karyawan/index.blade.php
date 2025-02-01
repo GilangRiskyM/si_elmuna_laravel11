@@ -4,12 +4,6 @@
     <center>
         <h1>DATA KARYAWAN ELMUNA</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="my-3">
         <a href="/karyawan/tambah" class="btn btn-primary">Tambah Data</a>
     </div>

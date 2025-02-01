@@ -33,13 +33,6 @@
                                 <div class="card-body">
                                     <form action="" method="POST">
                                         @csrf
-                                        @if (Session::has('status'))
-                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                {{ Session::get('message') }}
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                        @endif
                                         <div class="input-group mb-3">
                                             <div class="form-floating">
                                                 <input type="email" class="form-control" id="email" placeholder=""

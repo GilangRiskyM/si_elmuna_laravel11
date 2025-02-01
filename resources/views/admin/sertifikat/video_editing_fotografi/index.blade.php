@@ -5,12 +5,6 @@
     <center>
         <h1 class="my-3">Sertifikat Video Editing & Fotografi</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
         <form action="/sertifikat/video-editing-fotografi" method="get">

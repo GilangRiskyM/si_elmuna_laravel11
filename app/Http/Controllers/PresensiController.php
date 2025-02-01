@@ -55,13 +55,9 @@ class PresensiController extends Controller
             'status' => 'Hadir'
         ];
 
-        $presensi = Presensi::create($data);
+        Presensi::create($data);
 
-        if ($presensi) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Presensi berhasil!');
-        }
-
+        sweetalert()->info('Presensi Berhasil!');
         return redirect('/presensi');
     }
 
@@ -99,25 +95,17 @@ class PresensiController extends Controller
             'status' => $request->status
         ];
 
-        $presensi = Presensi::create($data);
+        Presensi::create($data);
 
-        if ($presensi) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Presensi berhasil!');
-        }
-
+        sweetalert()->info('Presensi Berhasil!');
         return redirect('/presensi');
     }
 
     function destroy($id)
     {
-        $delete = Presensi::findOrFail($id)->delete();
+        Presensi::findOrFail($id)->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Data berhasil dihapus!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/presensi');
     }
 

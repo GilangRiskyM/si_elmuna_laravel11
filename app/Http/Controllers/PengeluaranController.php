@@ -67,13 +67,9 @@ class PengeluaranController extends Controller
     function store(TambahPengeluaranRequest $request)
     {
         $request->validated();
-        $sql = Keluar::create($request->all());
+        Keluar::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Pengeluaran Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/pengeluaran');
     }
 
@@ -90,13 +86,9 @@ class PengeluaranController extends Controller
     {
         $request->validated();
         $sql = Keluar::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Pengeluaran Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/pengeluaran');
     }
 
@@ -112,13 +104,9 @@ class PengeluaranController extends Controller
     function destroy($id)
     {
         $sql = Keluar::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Pengeluaran Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/pengeluaran');
     }
 
@@ -133,15 +121,11 @@ class PengeluaranController extends Controller
 
     function restoreData($id)
     {
-        $sql = Keluar::withTrashed()
+        Keluar::withTrashed()
             ->where('id', $id)
             ->restore();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/pengeluaran');
     }
 
@@ -157,15 +141,11 @@ class PengeluaranController extends Controller
 
     function forceDelete($id)
     {
-        $sql = Keluar::withTrashed()
+        Keluar::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Pengeluaran Secara Permanen!!!');
-        }
-
+        sweetalert()->success('Berhasil Hapus Data Secara Permanen!');
         return redirect('/pengeluaran/restore');
     }
 

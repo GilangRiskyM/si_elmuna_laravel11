@@ -23,13 +23,9 @@ class BahasaInggrisController extends Controller
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = BahasaInggris::create($request->all());
+        BahasaInggris::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
-        }
-
+        sweetalert()->success('Anda [' . $request->nama . '] berhasil mendaftar!');
         return redirect('/daftar_bahasa_inggris');
     }
 
@@ -88,12 +84,8 @@ class BahasaInggrisController extends Controller
         $request->validated();
         $request['paket'] = json_encode($request->paket);
         $sql = BahasaInggris::findOrFail($id);
-        $update = $sql->update($request->all());
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Berhasil!!!');
-        }
-
+        $sql->update($request->all());
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/data_bahasa_inggris');
     }
 
@@ -107,12 +99,8 @@ class BahasaInggrisController extends Controller
     function destroy($id)
     {
         $sql = BahasaInggris::findOrFail($id);
-        $delete = $sql->delete();
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Berhasil!!!');
-        }
-
+        $sql->delete();
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/data_bahasa_inggris');
     }
 
@@ -125,15 +113,10 @@ class BahasaInggrisController extends Controller
 
     function restoreData($id)
     {
-        $sql = BahasaInggris::withTrashed()
+        BahasaInggris::withTrashed()
             ->where('id', $id)
             ->restore();
-
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/data_bahasa_inggris');
     }
 
@@ -147,15 +130,10 @@ class BahasaInggrisController extends Controller
 
     function forceDelete($id)
     {
-        $sql = BahasaInggris::withTrashed()
+        BahasaInggris::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
-
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
-        }
-
+        sweetalert()->success('Berhasil Menghapus Data Secara Permanen!');
         return redirect('/data_bahasa_inggris/terhapus');
     }
 

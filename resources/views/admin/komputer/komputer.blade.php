@@ -5,23 +5,17 @@
     <center>
         <h1>DATA PESERTA KURSUS KOMPUTER</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="my-3">
-        <a href="/data_komputer/terhapus" class="btn btn-secondary">Restore Data</a>
+        <a href="{{ url('/data_komputer/terhapus') }}" class="btn btn-secondary">Restore Data</a>
     </div>
     <hr>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="/data_komputer" method="get">
+        <form action="{{ url('/data_komputer') }}" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
-                <a href="/data_komputer" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/data_komputer') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>

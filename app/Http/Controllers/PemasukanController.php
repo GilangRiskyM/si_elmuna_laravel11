@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 use App\Http\Requests\EditMasukRequest;
-use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use App\Http\Requests\TambahPemasukanRequest;
@@ -67,13 +66,9 @@ class PemasukanController extends Controller
     function store(TambahPemasukanRequest $request)
     {
         $request->validated();
-        $sql = Masuk::create($request->all());
+        Masuk::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Pemasukan Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/pemasukan');
     }
 
@@ -90,13 +85,9 @@ class PemasukanController extends Controller
     {
         $request->validated();
         $sql = Masuk::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Pemasukan Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/pemasukan');
     }
 
@@ -112,13 +103,9 @@ class PemasukanController extends Controller
     function destroy($id)
     {
         $sql = Masuk::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Pemasukan Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/pemasukan');
     }
 
@@ -133,15 +120,11 @@ class PemasukanController extends Controller
 
     function restoreData($id)
     {
-        $sql = Masuk::withTrashed()
+        Masuk::withTrashed()
             ->where('id', $id)
             ->restore();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/pemasukan');
     }
 
@@ -157,15 +140,11 @@ class PemasukanController extends Controller
 
     function forceDelete($id)
     {
-        $sql = Masuk::withTrashed()
+        Masuk::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Pemasukan Secara Permanen!!!');
-        }
-
+        sweetalert()->success('Berhasil Menghapus Data Secara Permanen!');
         return redirect('/pemasukan/restore');
     }
 

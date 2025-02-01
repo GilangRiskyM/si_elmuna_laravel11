@@ -7,7 +7,6 @@ use App\Http\Requests\TambahDigitalMarketingRequest;
 use App\Models\DigitalMarketing;
 use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -22,13 +21,9 @@ class DigitalMarketingController extends Controller
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DigitalMarketing::create($request->all());
+        DigitalMarketing::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
-        }
-
+        sweetalert()->success('Anda [' . $request->nama . '] Berhasil Mendaftar!');
         return redirect('/daftar_digital_marketing');
     }
 
@@ -87,12 +82,9 @@ class DigitalMarketingController extends Controller
         $request->validated();
         $request['paket'] = json_encode($request->paket);
         $sql = DigitalMarketing::findOrFail($id);
-        $update = $sql->update($request->all());
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Berhasil!!!');
-        }
+        $sql->update($request->all());
 
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/data_digital_marketing');
     }
 
@@ -106,12 +98,9 @@ class DigitalMarketingController extends Controller
     function destroy($id)
     {
         $sql = DigitalMarketing::findOrFail($id);
-        $delete = $sql->delete();
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Berhasil!!!');
-        }
+        $sql->delete();
 
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/data_digital_marketing');
     }
 
@@ -124,15 +113,11 @@ class DigitalMarketingController extends Controller
 
     function restoreData($id)
     {
-        $sql = DigitalMarketing::withTrashed()
+        DigitalMarketing::withTrashed()
             ->where('id', $id)
             ->restore();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/data_digital_marketing');
     }
 
@@ -146,15 +131,11 @@ class DigitalMarketingController extends Controller
 
     function forceDelete($id)
     {
-        $sql = DigitalMarketing::withTrashed()
+        DigitalMarketing::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
-        }
-
+        sweetalert()->success('Berhasil Hapus Data Secara Permanen!');
         return redirect('/data_digital_marketing/terhapus');
     }
 

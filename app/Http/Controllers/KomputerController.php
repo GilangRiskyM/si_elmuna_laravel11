@@ -7,7 +7,6 @@ use App\Http\Requests\EditKomputerRequest;
 use App\Models\Komputer;
 use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
@@ -22,13 +21,9 @@ class KomputerController extends Controller
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = Komputer::create($request->all());
+        Komputer::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
-        }
-
+        sweetalert()->succes('Anda [' . $request->nama . '] Berhasil Mendaftar!');
         return redirect('/daftar_komputer');
     }
 
@@ -87,12 +82,9 @@ class KomputerController extends Controller
         $request->validated();
         $request['paket'] = json_encode($request->paket);
         $sql = Komputer::findOrFail($id);
-        $update = $sql->update($request->all());
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Berhasil!!!');
-        }
+        $sql->update($request->all());
 
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/data_komputer');
     }
 
@@ -106,12 +98,9 @@ class KomputerController extends Controller
     function destroy($id)
     {
         $sql = Komputer::findOrFail($id);
-        $delete = $sql->delete();
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Berhasil!!!');
-        }
+        $sql->delete();
 
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/data_komputer');
     }
 
@@ -124,15 +113,11 @@ class KomputerController extends Controller
 
     function restoreData($id)
     {
-        $sql = Komputer::withTrashed()
+        Komputer::withTrashed()
             ->where('id', $id)
             ->restore();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/data_komputer');
     }
 
@@ -146,15 +131,11 @@ class KomputerController extends Controller
 
     function forceDelete($id)
     {
-        $sql = Komputer::withTrashed()
+        Komputer::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
-        }
-
+        sweetalert()->success('Data Berhasil Dihapus Secara Permanen!');
         return redirect('/data_komputer/terhapus');
     }
 

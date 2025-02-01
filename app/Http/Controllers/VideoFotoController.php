@@ -22,13 +22,9 @@ class VideoFotoController extends Controller
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = VideoFoto::create($request->all());
+        VideoFoto::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/daftar_video_editing_fotografi');
     }
 
@@ -87,12 +83,9 @@ class VideoFotoController extends Controller
         $request->validated();
         $request['paket'] = json_encode($request->paket);
         $sql = VideoFoto::findOrFail($id);
-        $update = $sql->update($request->all());
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Berhasil!!!');
-        }
+        $sql->update($request->all());
 
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/data_video_editing_fotografi');
     }
 
@@ -106,12 +99,9 @@ class VideoFotoController extends Controller
     function destroy($id)
     {
         $sql = VideoFoto::findOrFail($id);
-        $delete = $sql->delete();
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Berhasil!!!');
-        }
+        $sql->delete();
 
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/data_video_editing_fotografi');
     }
 
@@ -124,15 +114,11 @@ class VideoFotoController extends Controller
 
     function restoreData($id)
     {
-        $sql = VideoFoto::withTrashed()
+        VideoFoto::withTrashed()
             ->where('id', $id)
             ->restore();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/data_video_editing_fotografi');
     }
 
@@ -146,15 +132,11 @@ class VideoFotoController extends Controller
 
     function forceDelete($id)
     {
-        $sql = VideoFoto::withTrashed()
+        VideoFoto::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
-        }
-
+        sweetalert()->success('Berhasil Hapus Data Secara Permanen!');
         return redirect('/data_video_editing_fotografi/terhapus');
     }
 

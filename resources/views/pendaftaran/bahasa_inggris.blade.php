@@ -1,12 +1,6 @@
 @extends('layout.main')
 @section('title', 'Elmuna - Daftar Bahasa Inggris')
 @section('content')
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="card">
         <div class="card-header">
             <center>
@@ -75,8 +69,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="kode_pos" class="form-label">Kode Pos</label>
-                    <input type="text" name="kode_pos" id="kode_pos" class="form-control"
-                        value="{{ old('kode_pos') }}">
+                    <input type="text" name="kode_pos" id="kode_pos" class="form-control" value="{{ old('kode_pos') }}">
                 </div>
                 <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
@@ -136,7 +129,7 @@
                     <center>
                         <a href="/" class="btn btn-secondary">Kembali</a>
                         <button type="reset" class="btn btn-danger mx-2">Batal</button>
-                        <button type="submit" class="btn btn-success">Kirim</button>
+                        <button type="submit" class="btn btn-success">Daftar</button>
                     </center>
                 </div>
             </form>

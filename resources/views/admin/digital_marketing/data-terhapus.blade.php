@@ -5,12 +5,6 @@
     <center>
         <h1>Data Peserta Kursus Digital Marketing Yang Dihapus</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="my-3">
         <a href="/data_digital_marketing" class="btn btn-secondary">Kembali</a>
     </div>
@@ -88,8 +82,7 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/restore-digital_marketing/{{ $datum->id }}"
-                                    class="btn btn-success">Restore</a>
+                                <a href="/restore-digital_marketing/{{ $datum->id }}" class="btn btn-success">Restore</a>
                                 <a href="/hapus_permanen_digital_marketing/{{ $datum->id }}"
                                     class="btn btn-danger my-2">Hapus
                                     Permanen</a>

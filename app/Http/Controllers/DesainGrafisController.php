@@ -7,7 +7,6 @@ use App\Http\Requests\TambahDesainGrafisRequest;
 use App\Models\DesainGrafis;
 use DateTime;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -23,13 +22,9 @@ class DesainGrafisController extends Controller
     {
         $request->validated();
         $request['paket'] = json_encode($request->paket);
-        $sql = DesainGrafis::create($request->all());
+        DesainGrafis::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Anda [' . $request->nama . '] Berhasil Mendaftar!!!');
-        }
-
+        sweetalert()->success('Anda [' . $request->nama . '] Berhasil Mendaftar!');
         return redirect('/daftar_desain_grafis');
     }
 
@@ -88,12 +83,9 @@ class DesainGrafisController extends Controller
         $request->validated();
         $request['paket'] = json_encode($request->paket);
         $sql = DesainGrafis::findOrFail($id);
-        $update = $sql->update($request->all());
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Berhasil!!!');
-        }
+        $sql->update($request->all());
 
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/data_desain_grafis');
     }
 
@@ -107,12 +99,9 @@ class DesainGrafisController extends Controller
     function destroy($id)
     {
         $sql = DesainGrafis::findOrFail($id);
-        $delete = $sql->delete();
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Berhasil!!!');
-        }
+        $sql->delete();
 
+        sweetalert()->success('Data Berhasil Dihapus!');
         return redirect('/data_desain_grafis');
     }
 
@@ -125,15 +114,11 @@ class DesainGrafisController extends Controller
 
     function restoreData($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        DesainGrafis::withTrashed()
             ->where('id', $id)
             ->restore();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Restore Data Berhasil!!!');
-        }
-
+        sweetalert()->success('Restore Data Berhasil!');
         return redirect('/data_desain_grafis');
     }
 
@@ -147,15 +132,11 @@ class DesainGrafisController extends Controller
 
     function forceDelete($id)
     {
-        $sql = DesainGrafis::withTrashed()
+        DesainGrafis::withTrashed()
             ->findOrFail($id)
             ->forceDelete();
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Berhasil Hapus Data Secara Permanen!!!');
-        }
-
+        sweetalert()->succes('Berhasil Menghapus Data Secara Permanen!');
         return redirect('/data_desain_grafis/terhapus');
     }
 

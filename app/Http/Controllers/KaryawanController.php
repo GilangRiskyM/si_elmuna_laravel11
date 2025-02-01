@@ -6,7 +6,6 @@ use App\Http\Requests\EditKaryawanRequest;
 use App\Http\Requests\TambahKaryawanRequest;
 use App\Models\Karyawan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class KaryawanController extends Controller
@@ -51,11 +50,8 @@ class KaryawanController extends Controller
             'tanda_tangan' => $namaGambar,
         ];
 
-        $tambah = Karyawan::create($data);
-        if ($tambah) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Data berhasil ditambahkan!');
-        }
+        Karyawan::create($data);
+        sweetalert()->success('Berhasil Menambah Data!');
         return redirect('/karyawan');
     }
 
@@ -101,12 +97,9 @@ class KaryawanController extends Controller
             'tanda_tangan' => isset($namaGambar) ? $namaGambar : $karyawan->tanda_tangan,
         ];
 
-        $update = $karyawan->update($data);
+        $karyawan->update($data);
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Data berhasil diubah!');
-        }
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/karyawan');
     }
 
@@ -121,11 +114,8 @@ class KaryawanController extends Controller
     function destroy($id)
     {
         $sql = Karyawan::findOrFail($id);
-        $delete = $sql->delete();
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Data berhasil dihapus!');
-        }
+        $sql->delete();
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/karyawan');
     }
 }

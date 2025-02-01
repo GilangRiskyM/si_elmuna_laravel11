@@ -42,72 +42,60 @@ class SertifikatPemrogramanController extends Controller
 
     function create($id)
     {
-        $sql = Pemrograman::findOrFail($id);
+        $data = Pemrograman::findOrFail($id);
 
-        return view('admin.sertifikat.pemrograman.tambah', ['data' => $sql]);
+        return view('admin.sertifikat.pemrograman.tambah', ['data' => $data]);
     }
 
     function store(TambahSertifikatRequest $request)
     {
         $request->validated();
-        $sql = SertifikatPemrograman::create($request->all());
+        SertifikatPemrograman::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/sertifikat/pemrograman');
     }
 
     function edit($id)
     {
-        $sql = SertifikatPemrograman::findOrFail($id);
-        return view('admin.sertifikat.pemrograman.edit', ['data' => $sql]);
+        $data = SertifikatPemrograman::findOrFail($id);
+        return view('admin.sertifikat.pemrograman.edit', ['data' => $data]);
     }
 
     function update(EditSertifikatRequest $request, $id)
     {
         $request->validated();
         $sql = SertifikatPemrograman::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/sertifikat/pemrograman');
     }
 
     function delete($id)
     {
-        $sql = SertifikatPemrograman::findOrFail($id);
-        return view('admin.sertifikat.pemrograman.hapus', ['data' => $sql]);
+        $data = SertifikatPemrograman::findOrFail($id);
+        return view('admin.sertifikat.pemrograman.hapus', ['data' => $data]);
     }
 
     function destroy($id)
     {
         $sql = SertifikatPemrograman::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/sertifikat/pemrograman');
     }
 
     function cetak_sertifikat($id)
     {
-        $sql = SertifikatPemrograman::findOrFail($id);
-        return view('admin.sertifikat.pemrograman.cetak-sertifikat', ['data' => $sql]);
+        $data = SertifikatPemrograman::findOrFail($id);
+        return view('admin.sertifikat.pemrograman.cetak-sertifikat', ['data' => $data]);
     }
 
     function cetak_nilai($id)
     {
-        $sql = SertifikatPemrograman::findOrFail($id);
-        return view('admin.sertifikat.pemrograman.cetak-nilai', ['data' => $sql]);
+        $data = SertifikatPemrograman::findOrFail($id);
+        return view('admin.sertifikat.pemrograman.cetak-nilai', ['data' => $data]);
     }
 }

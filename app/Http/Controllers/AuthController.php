@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -22,12 +21,11 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            sweetalert()->info('Selamat datang ' . Auth::user()->name . '!');
             return redirect()->intended('/dashboard');
         }
 
-        Session::flash('status', 'fail');
-        Session::flash('message', 'Email atau Password Salah!');
-
+        sweetalert()->error('Login Gagal! Email atau Password Salah!');
         return redirect('/login');
     }
 

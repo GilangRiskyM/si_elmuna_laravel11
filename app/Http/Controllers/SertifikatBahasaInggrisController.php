@@ -50,13 +50,9 @@ class SertifikatBahasaInggrisController extends Controller
     function store(TambahSertifikatRequest $request)
     {
         $request->validated();
-        $sql = SertifikatBahasaInggris::create($request->all());
+        SertifikatBahasaInggris::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/sertifikat/bahasa-inggris');
     }
 
@@ -70,13 +66,9 @@ class SertifikatBahasaInggrisController extends Controller
     {
         $request->validated();
         $sql = SertifikatBahasaInggris::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/sertifikat/bahasa-inggris');
     }
 
@@ -89,25 +81,21 @@ class SertifikatBahasaInggrisController extends Controller
     function destroy($id)
     {
         $sql = SertifikatBahasaInggris::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/sertifikat/bahasa-inggris');
     }
 
     function cetak_sertifikat($id)
     {
-        $sql = SertifikatBahasaInggris::findOrFail($id);
-        return view('admin.sertifikat.bahasa_inggris.cetak-sertifikat', ['data' => $sql]);
+        $data = SertifikatBahasaInggris::findOrFail($id);
+        return view('admin.sertifikat.bahasa_inggris.cetak-sertifikat', ['data' => $data]);
     }
 
     function cetak_nilai($id)
     {
-        $sql = SertifikatBahasaInggris::findOrFail($id);
-        return view('admin.sertifikat.bahasa_inggris.cetak-nilai', ['data' => $sql]);
+        $data = SertifikatBahasaInggris::findOrFail($id);
+        return view('admin.sertifikat.bahasa_inggris.cetak-nilai', ['data' => $data]);
     }
 }

@@ -42,72 +42,60 @@ class SertifikatMengemudiController extends Controller
 
     function create($id)
     {
-        $sql = Mengemudi::findOrFail($id);
+        $data = Mengemudi::findOrFail($id);
 
-        return view('admin.sertifikat.mengemudi.tambah', ['data' => $sql]);
+        return view('admin.sertifikat.mengemudi.tambah', ['data' => $data]);
     }
 
     function store(TambahSertifikatRequest $request)
     {
         $request->validated();
-        $sql = SertifikatMengemudi::create($request->all());
+        SertifikatMengemudi::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/sertifikat/mengemudi');
     }
 
     function edit($id)
     {
-        $sql = SertifikatMengemudi::findOrFail($id);
-        return view('admin.sertifikat.mengemudi.edit', ['data' => $sql]);
+        $data = SertifikatMengemudi::findOrFail($id);
+        return view('admin.sertifikat.mengemudi.edit', ['data' => $data]);
     }
 
     function update(EditSertifikatRequest $request, $id)
     {
         $request->validated();
         $sql = SertifikatMengemudi::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/sertifikat/mengemudi');
     }
 
     function delete($id)
     {
-        $sql = SertifikatMengemudi::findOrFail($id);
-        return view('admin.sertifikat.mengemudi.hapus', ['data' => $sql]);
+        $data = SertifikatMengemudi::findOrFail($id);
+        return view('admin.sertifikat.mengemudi.hapus', ['data' => $data]);
     }
 
     function destroy($id)
     {
         $sql = SertifikatMengemudi::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/sertifikat/mengemudi');
     }
 
     function cetak_sertifikat($id)
     {
-        $sql = SertifikatMengemudi::findOrFail($id);
-        return view('admin.sertifikat.mengemudi.cetak-sertifikat', ['data' => $sql]);
+        $data = SertifikatMengemudi::findOrFail($id);
+        return view('admin.sertifikat.mengemudi.cetak-sertifikat', ['data' => $data]);
     }
 
     function cetak_nilai($id)
     {
-        $sql = SertifikatMengemudi::findOrFail($id);
-        return view('admin.sertifikat.mengemudi.cetak-nilai', ['data' => $sql]);
+        $data = SertifikatMengemudi::findOrFail($id);
+        return view('admin.sertifikat.mengemudi.cetak-nilai', ['data' => $data]);
     }
 }

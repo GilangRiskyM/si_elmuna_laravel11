@@ -5,12 +5,6 @@
     <center>
         <h1 class="my-3">Pengeluaran</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="my-3">
         <a href="/pengeluaran/tambah" class="btn btn-primary">Tambah Data</a>
         <a href="/pengeluaran/restore" class="btn btn-secondary">Restore Data</a>

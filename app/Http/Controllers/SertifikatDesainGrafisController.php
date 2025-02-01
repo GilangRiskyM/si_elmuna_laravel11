@@ -42,71 +42,59 @@ class SertifikatDesainGrafisController extends Controller
 
     function create($id)
     {
-        $sql = DesainGrafis::findOrFail($id);
-        return view('admin.sertifikat.desain_grafis.tambah', ['data' => $sql]);
+        $data = DesainGrafis::findOrFail($id);
+        return view('admin.sertifikat.desain_grafis.tambah', ['data' => $data]);
     }
 
     function store(TambahSertifikatRequest $request)
     {
         $request->validated();
-        $sql = SertifikatDesainGrafis::create($request->all());
+        SertifikatDesainGrafis::create($request->all());
 
-        if ($sql) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Tambah Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Tambah Data Berhasil!');
         return redirect('/sertifikat/desain-grafis');
     }
 
     function edit($id)
     {
-        $sql = SertifikatDesainGrafis::findOrFail($id);
-        return view('admin.sertifikat.desain_grafis.edit', ['data' => $sql]);
+        $data = SertifikatDesainGrafis::findOrFail($id);
+        return view('admin.sertifikat.desain_grafis.edit', ['data' => $data]);
     }
 
     function update(EditSertifikatRequest $request, $id)
     {
         $request->validated();
         $sql = SertifikatDesainGrafis::findOrFail($id);
-        $update = $sql->update($request->all());
+        $sql->update($request->all());
 
-        if ($update) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Edit Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Update Data Berhasil!');
         return redirect('/sertifikat/desain-grafis');
     }
 
     function delete($id)
     {
-        $sql = SertifikatDesainGrafis::findOrFail($id);
-        return view('admin.sertifikat.desain_grafis.hapus', ['data' => $sql]);
+        $data = SertifikatDesainGrafis::findOrFail($id);
+        return view('admin.sertifikat.desain_grafis.hapus', ['data' => $data]);
     }
 
     function destroy($id)
     {
         $sql = SertifikatDesainGrafis::findOrFail($id);
-        $delete = $sql->delete();
+        $sql->delete();
 
-        if ($delete) {
-            Session::flash('status', 'success');
-            Session::flash('message', 'Hapus Data Sertifikat Berhasil!!!');
-        }
-
+        sweetalert()->success('Hapus Data Berhasil!');
         return redirect('/sertifikat/desain-grafis');
     }
 
     function cetak_sertifikat($id)
     {
-        $sql = SertifikatDesainGrafis::findOrFail($id);
-        return view('admin.sertifikat.desain_grafis.cetak-sertifikat', ['data' => $sql]);
+        $data = SertifikatDesainGrafis::findOrFail($id);
+        return view('admin.sertifikat.desain_grafis.cetak-sertifikat', ['data' => $data]);
     }
 
     function cetak_nilai($id)
     {
-        $sql = SertifikatDesainGrafis::findOrFail($id);
-        return view('admin.sertifikat.desain_grafis.cetak-nilai', ['data' => $sql]);
+        $data = SertifikatDesainGrafis::findOrFail($id);
+        return view('admin.sertifikat.desain_grafis.cetak-nilai', ['data' => $data]);
     }
 }

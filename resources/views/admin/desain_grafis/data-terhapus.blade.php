@@ -5,12 +5,6 @@
     <center>
         <h1>Data Peserta Kursus Desain Grafis Yang Dihapus</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="my-3">
         <a href="/data_desain_grafis" class="btn btn-secondary">Kembali</a>
     </div>
@@ -88,8 +82,7 @@
                             </td>
                             <td>
                                 <a href="/restore-desain_grafis/{{ $datum->id }}" class="btn btn-success">Restore</a>
-                                <a href="/hapus_permanen_desain_grafis/{{ $datum->id }}"
-                                    class="btn btn-danger my-2">Hapus
+                                <a href="/hapus_permanen_desain_grafis/{{ $datum->id }}" class="btn btn-danger my-2">Hapus
                                     Permanen</a>
                             </td>
                         </tr>
