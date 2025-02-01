@@ -1,8 +1,6 @@
 <?php
 
-use App\Models\SertifikatKomputer;
 use Illuminate\Support\Facades\Route;
-use App\Models\SertifikatBahasaInggris;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LaporanController;
@@ -13,7 +11,6 @@ use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\MengemudiController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\VideoFotoController;
-use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\PemrogramanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\DesainGrafisController;
