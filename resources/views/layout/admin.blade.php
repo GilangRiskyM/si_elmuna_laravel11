@@ -8,22 +8,22 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Elmuna | @yield('title')</title>
-    <link rel="icon" href="/asset/img/icon1.png" type="image/x-icon">
-    <link href="/css/styles.css" rel="stylesheet" />
+    <link rel="icon" href="{{ asset('/asset/img/icon1.png') }}" type="image/x-icon">
+    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @stack('css')
-    <script src="/js/scripts.js"></script>
+    <script src="{{ asset('/js/scripts.js') }}"></script>
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="/dashboard"><img src="/asset/img/icon1.png" alt="Logo" width="40"
-                height="40"> {{ Auth::user()->name }}</a>
+        <a class="navbar-brand ps-3" href="{{ url('/dashboard') }}"><img src="{{ asset('/asset/img/icon1.png') }}"
+                alt="Logo" width="40" height="40"> {{ Auth::user()->name }}</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
             <i class='bx bx-menu'></i>
@@ -35,7 +35,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link" href="/dashboard">
+                        <a class="nav-link" href="{{ url('/dashboard') }}">
                             <div class="sb-nav-link-icon">
                                 <i class='bx bxs-dashboard'></i>
                             </div>
@@ -52,13 +52,15 @@
                         <div class="collapse" id="dataPeserta" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a href="/data_bahasa_inggris" class="nav-link">Kursus Bahasa Inggris</a>
-                                <a href="/data_desain_grafis" class="nav-link">Kursus Desain Grafis</a>
-                                <a class="nav-link" href="/data_digital_marketing">Kursus Digital Marketing</a>
-                                <a class="nav-link" href="/data_komputer">Kursus Komputer</a>
-                                <a class="nav-link" href="/data_mengemudi">Kursus Mengemudi</a>
-                                <a href="/data_pemrograman" class="nav-link">Kursus Pemrograman</a>
-                                <a href="/data_video_editing_fotografi" class="nav-link">
+                                <a href="{{ url('/data_bahasa_inggris') }}" class="nav-link">Kursus Bahasa Inggris</a>
+                                <a href="{{ url('/data_desain_grafis') }}" class="nav-link">Kursus Desain Grafis</a>
+                                <a class="nav-link" href="{{ url('/data_digital_marketing') }}">
+                                    Kursus Digital Marketing
+                                </a>
+                                <a class="nav-link" href="{{ url('/data_komputer') }}">Kursus Komputer</a>
+                                <a class="nav-link" href="{{ url('/data_mengemudi') }}">Kursus Mengemudi</a>
+                                <a href="{{ url('/data_pemrograman') }}" class="nav-link">Kursus Pemrograman</a>
+                                <a href="{{ url('/data_video_editing_fotografi') }}" class="nav-link">
                                     Kursus Video Editing & Fotografi
                                 </a>
                             </nav>
@@ -75,13 +77,15 @@
                         <div class="collapse" id="dataSertifikat" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/sertifikat/bahasa-inggris">Bahasa Inggris</a>
-                                <a class="nav-link" href="/sertifikat/desain-grafis">Desain Grafis</a>
-                                <a class="nav-link" href="/sertifikat/digital-marketing">Digital Marketing</a>
-                                <a class="nav-link" href="/sertifikat/komputer">Komputer</a>
-                                <a class="nav-link" href="/sertifikat/mengemudi">Mengemudi</a>
-                                <a class="nav-link" href="/sertifikat/pemrograman">Pemrograman</a>
-                                <a class="nav-link" href="/sertifikat/video-editing-fotografi">Video Editing &
+                                <a class="nav-link" href="{{ url('/sertifikat/bahasa-inggris') }}">Bahasa Inggris</a>
+                                <a class="nav-link" href="{{ url('/sertifikat/desain-grafis') }}">Desain Grafis</a>
+                                <a class="nav-link" href="{{ url('/sertifikat/digital-marketing') }}">Digital
+                                    Marketing</a>
+                                <a class="nav-link" href="{{ url('/sertifikat/komputer') }}">Komputer</a>
+                                <a class="nav-link" href="{{ url('/sertifikat/mengemudi') }}">Mengemudi</a>
+                                <a class="nav-link" href="{{ url('/sertifikat/pemrograman') }}">Pemrograman</a>
+                                <a class="nav-link" href="{{ url('/sertifikat/video-editing-fotografi') }}">Video
+                                    Editing &
                                     Fotografi</a>
                             </nav>
                         </div>
@@ -97,10 +101,10 @@
                         <div class="collapse" id="dataRekap" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/pemasukan">Pemasukan</a>
-                                <a class="nav-link" href="/pengeluaran">Pengeluaran</a>
-                                <a class="nav-link" href="/laporan">Laporan</a>
-                                <a href="/kuitansi" class="nav-link">Kuitansi</a>
+                                <a class="nav-link" href="{{ url('/pemasukan') }}">Pemasukan</a>
+                                <a class="nav-link" href="{{ url('/pengeluaran') }}">Pengeluaran</a>
+                                <a class="nav-link" href="{{ url('/laporan') }}">Laporan</a>
+                                <a href="{{ url('/kuitansi') }}" class="nav-link">Kuitansi</a>
                             </nav>
                         </div>
                         <a href="#" class="nav-link collapsed" data-bs-toggle="collapse"
@@ -114,11 +118,15 @@
                         <div class="collapse" id="dataKaryawan" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAvvordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a href="/karyawan" class="nav-link">Karyawan</a>
-                                <a href="/presensi" class="nav-link">Data Presensi</a>
+                                <a href="{{ url('/karyawan') }}" class="nav-link">Karyawan</a>
+                                <a href="{{ url('/presensi') }}" class="nav-link">Data Presensi</a>
                             </nav>
                         </div>
-                        <a href="/logout" class="nav-link">
+                        <a href="{{ url('/') }}" class="nav-link">
+                            <div class="sb-nav-link-icon"><i class='bx bxs-home'></i></div>
+                            Halaman Awal
+                        </a>
+                        <a href="{{ url('/logout') }}" class="nav-link">
                             <div class="sb-nav-link-icon"><i class='bx bx-log-out bx-flip-horizontal'></i></div>
                             Keluar
                         </a>

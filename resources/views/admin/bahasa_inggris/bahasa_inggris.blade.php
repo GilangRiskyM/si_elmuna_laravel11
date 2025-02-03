@@ -6,37 +6,37 @@
         <h1>DATA PESERTA KURSUS BAHASA INGGRIS</h1>
     </center>
     <div class="my-3">
-        <a href="/data_bahasa_inggris/terhapus" class="btn btn-secondary">Restore Data</a>
+        <a href="{{ url('/data_bahasa_inggris/terhapus') }}" class="btn btn-secondary">Restore Data</a>
     </div>
     <hr>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="/data_bahasa_inggris" method="get">
+        <form action="{{ url('/data_bahasa_inggris') }}" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
-                <a href="/data_bahasa_inggris" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/data_bahasa_inggris') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Filter Tanggal Mendaftar</label>
-        <form action="/data_bahasa_inggris/filter" method="get">
+        <form action="{{ url('/data_bahasa_inggris/filter') }}" method="get">
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
                 <input type="date" class="form-control" name="tgl_awal" required>
                 <span class="input-group-text">Sampai Tanggal : </span>
                 <input type="date" name="tgl_akhir" class="form-control" required>
                 <button type="submit" class="btn btn-primary">Filter</button>
-                <a href="/data_bahasa_inggris" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/data_bahasa_inggris') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Export Data ke Excel</label>
-        <form action="/data_bahasa_inggris/export" method="post">
+        <form action="{{ url('/data_bahasa_inggris/export') }}" method="post">
             @csrf
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
@@ -122,10 +122,11 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="/edit_bahasa_inggris/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/hapus_bahasa_inggris/{{ $datum->id }}"
+                                    <a href="{{ url('/edit_bahasa_inggris/' . $datum->id) }}"
+                                        class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/hapus_bahasa_inggris/' . $datum->id) }}"
                                         class="btn btn-danger my-2">Hapus</a>
-                                    <a href="/sertifikat/tambah/bahasa-inggris/{{ $datum->id }}"
+                                    <a href="{{ url('/sertifikat/tambah/bahasa-inggris/' . $datum->id) }}"
                                         class="btn btn-primary">Buat Sertifikat</a>
                                 </center>
                             </td>

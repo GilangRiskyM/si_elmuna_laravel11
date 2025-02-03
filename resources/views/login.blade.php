@@ -22,7 +22,7 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
                                     <center>
-                                        <a href="/">
+                                        <a href="{{ url('/') }}">
                                             <img src="/asset/img/elmuna.png" alt="Logo" width="70%">
                                         </a>
                                     </center>

@@ -6,7 +6,7 @@
         <h1>Data Peserta Kursus Desain Grafis Yang Dihapus</h1>
     </center>
     <div class="my-3">
-        <a href="/data_desain_grafis" class="btn btn-secondary">Kembali</a>
+        <a href="{{ url('/data_desain_grafis') }}" class="btn btn-secondary">Kembali</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -81,9 +81,10 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/restore-desain_grafis/{{ $datum->id }}" class="btn btn-success">Restore</a>
-                                <a href="/hapus_permanen_desain_grafis/{{ $datum->id }}" class="btn btn-danger my-2">Hapus
-                                    Permanen</a>
+                                <a href="{{ url('/restore-desain_grafis/' . $datum->id) }}"
+                                    class="btn btn-success">Restore</a>
+                                <a href="{{ url('/hapus_permanen_desain_grafis/' . $datum->id) }}"
+                                    class="btn btn-danger my-2">Hapus Permanen</a>
                             </td>
                         </tr>
                     @endforeach
