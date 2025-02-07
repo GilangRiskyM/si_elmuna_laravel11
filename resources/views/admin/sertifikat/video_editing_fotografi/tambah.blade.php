@@ -159,7 +159,7 @@
     </style>
 @endpush
 @section('content')
-    <form action="/tambah-sertifikat/video-editing-fotografi" method="post">
+    <form action="{{ url('/tambah-sertifikat/video-editing-fotografi') }}" method="post">
         @csrf
         @if ($errors->any())
             <div class="alert alert-danger mx-2">
@@ -247,7 +247,8 @@
                     <center>
                         <p>Kebumen, {{ tgl_indonesia3(date(now())) }} <br>
                             LKP ELMUNA</p>
-                        <img src="/asset/img/barcode.gif" alt="" width="15%" class="tanda_tangan">
+                        <img src="{{ asset('/asset/img/barcode.gif') }}" alt="" width="15%"
+                            class="tanda_tangan">
                         <p class="nama_direk"><b><u>MUHDORI, A. Md. T., S. Tr. Kom</u></b></p>
                         <p class="direk">DIREKTUR</p>
                     </center>
@@ -390,7 +391,8 @@
                                             Kebumen, {{ tgl_indonesia3(date(now())) }} <br />
                                             Bagian Akademik
                                         </p>
-                                        <img src="/asset/img/tanda_tangan-2.png" alt="" width="50%">
+                                        <img src="{{ asset('/asset/img/tanda_tangan-2.png') }}" alt=""
+                                            width="50%">
                                         <p>SITI SUGIHATI</p>
                                     </center>
                                 </div>
@@ -403,7 +405,7 @@
         <hr>
         <div class="my-2">
             <center>
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ url('/sertifikat/video-editing-fotografi') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-success">Kirim</button>
             </center>
         </div>

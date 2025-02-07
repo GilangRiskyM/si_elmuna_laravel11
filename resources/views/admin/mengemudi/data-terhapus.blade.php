@@ -6,7 +6,7 @@
         <h1>Data Peserta Kursus Mengemudi Yang Dihapus</h1>
     </center>
     <div class="my-3">
-        <a href="/data_mengemudi" class="btn btn-secondary">Kembali</a>
+        <a href="{{ url('/data_mengemudi') }}" class="btn btn-secondary">Kembali</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -81,8 +81,8 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/restore-mengemudi/{{ $datum->id }}" class="btn btn-success">Restore</a>
-                                <a href="/hapus_permanen_mengemudi/{{ $datum->id }}" class="btn btn-danger my-2">Hapus
+                                <a href="{{ url('/restore-mengemudi/' . $data->id) }}" class="btn btn-success">Restore</a>
+                                <a href="{{ url('/hapus_permanen_mengemudi/' . $data->id) }}" class="btn btn-danger my-2">Hapus
                                     Permanen</a>
                             </td>
                         </tr>

@@ -28,7 +28,7 @@
         <h3>Form Edit Data Kuitansi</h3>
     </center>
     <hr>
-    <form action="/edit-kuitansi/{{ $data->id }}" method="post">
+    <form action="{{ url('/edit-kuitansi/' . $data->id) }}" method="post">
         @csrf
         @method('put')
         <div class="row">
@@ -193,7 +193,7 @@
         <hr>
         <div class="my-2">
             <center>
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ url('/kuitansi') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-success">Kirim</button>
             </center>
         </div>

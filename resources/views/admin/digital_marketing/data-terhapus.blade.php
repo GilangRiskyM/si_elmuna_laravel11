@@ -6,7 +6,7 @@
         <h1>Data Peserta Kursus Digital Marketing Yang Dihapus</h1>
     </center>
     <div class="my-3">
-        <a href="/data_digital_marketing" class="btn btn-secondary">Kembali</a>
+        <a href="{{ url('/data_digital_marketing') }}" class="btn btn-secondary">Kembali</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -82,8 +82,9 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/restore-digital_marketing/{{ $datum->id }}" class="btn btn-success">Restore</a>
-                                <a href="/hapus_permanen_digital_marketing/{{ $datum->id }}"
+                                <a href="{{ url('/restore-digital_marketing/' . $datum->id) }}"
+                                    class="btn btn-success">Restore</a>
+                                <a href="{{ url('/hapus_permanen_digital_marketing/' . $datum->id) }}"
                                     class="btn btn-danger my-2">Hapus
                                     Permanen</a>
                             </td>

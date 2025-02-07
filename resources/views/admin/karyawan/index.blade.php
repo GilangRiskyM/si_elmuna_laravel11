@@ -5,16 +5,16 @@
         <h1>DATA KARYAWAN ELMUNA</h1>
     </center>
     <div class="my-3">
-        <a href="/karyawan/tambah" class="btn btn-primary">Tambah Data</a>
+        <a href="{{ url('/karyawan/tambah') }}" class="btn btn-primary">Tambah Data</a>
     </div>
     <hr>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="/karyawan" method="get">
+        <form action="{{ url('/karyawan') }}" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
-                <a href="/karyawan" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/karyawan') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
@@ -45,10 +45,12 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="/karyawan/qr-code/{{ $datum->id }}" class="btn btn-info my-2">Lihat QR
+                                    <a href="{{ url('/karyawan/qr-code/' . $datum->id) }}" class="btn btn-info my-2">Lihat
+                                        QR
                                         Code</a>
-                                    <a href="/karyawan/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/karyawan/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                                    <a href="{{ url('/karyawan/edit/' . $datum->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/karyawan/hapus/' . $datum->id) }}"
+                                        class="btn btn-danger my-2">Hapus</a>
                                 </center>
                             </td>
                         </tr>

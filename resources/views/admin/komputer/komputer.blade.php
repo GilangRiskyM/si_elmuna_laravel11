@@ -22,21 +22,21 @@
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Filter Tanggal Mendaftar</label>
-        <form action="/data_komputer/filter" method="get">
+        <form action="{{ url('/data_komputer/filter') }}" method="get">
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
                 <input type="date" class="form-control" name="tgl_awal" required>
                 <span class="input-group-text">Sampai Tanggal : </span>
                 <input type="date" name="tgl_akhir" class="form-control" required>
                 <button type="submit" class="btn btn-primary">Filter</button>
-                <a href="/data_komputer" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/data_komputer') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Export Data ke Excel</label>
-        <form action="/data_komputer/export" method="post">
+        <form action="{{ url('/data_komputer/export') }}" method="post">
             @csrf
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
@@ -122,9 +122,11 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="/edit_komputer/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/hapus_komputer/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
-                                    <a href="/sertifikat/tambah/komputer/{{ $datum->id }}" class="btn btn-primary">Buat
+                                    <a href="{{ url('/edit_komputer/' . $datum->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/hapus_komputer/' . $datum->id) }}"
+                                        class="btn btn-danger my-2">Hapus</a>
+                                    <a href="{{ url('/sertifikat/tambah/komputer/' . $datum->id) }}"
+                                        class="btn btn-primary">Buat
                                         Sertifikat</a>
                                 </center>
                             </td>

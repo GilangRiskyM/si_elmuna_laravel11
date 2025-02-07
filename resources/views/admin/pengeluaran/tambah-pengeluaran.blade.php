@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-pengeluaran" method="post">
+            <form action="{{ url('/tambah-pengeluaran') }}" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="ket_pengeluaran" class="form-label">Keterangan Pengeluaran</label>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="/pengeluaran" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ url('/pengeluaran') }}" class="btn btn-secondary">Kembali</a>
                         <button type="reset" class="btn btn-danger mx-2">Batal</button>
                         <button type="submit" class="btn btn-success">Kirim</button>
                     </center>

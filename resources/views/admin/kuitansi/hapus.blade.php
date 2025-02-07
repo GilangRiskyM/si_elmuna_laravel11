@@ -163,10 +163,10 @@
         <hr>
         <div class="my-2">
             <center>
-                <form action="/destroy-kuitansi/{{ $data->id }}" method="post">
+                <form action="{{ url('/destroy-kuitansi/' . $data->id) }}" method="post">
                     @method('DELETE')
                     @csrf
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ url('/kuitansi') }}" class="btn btn-secondary">Kembali</a>
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </center>

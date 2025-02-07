@@ -6,7 +6,7 @@
         <h1>Data Peserta Kursus Video Editing & Fotografi Yang Dihapus</h1>
     </center>
     <div class="my-3">
-        <a href="/data_video_editing_fotografi" class="btn btn-secondary">Kembali</a>
+        <a href="{{ url('/data_video_editing_fotografi') }}" class="btn btn-secondary">Kembali</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
@@ -81,9 +81,9 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="/restore-video_editing_fotografi/{{ $datum->id }}"
+                                <a href="{{ url('/restore-video_editing_fotografi/' . $datum->id) }}"
                                     class="btn btn-success">Restore</a>
-                                <a href="/hapus_permanen_video_editing_fotografi/{{ $datum->id }}"
+                                <a href="{{ url('/hapus_permanen_video_editing_fotografi/' . $datum->id) }}"
                                     class="btn btn-danger my-2">Hapus
                                     Permanen</a>
                             </td>

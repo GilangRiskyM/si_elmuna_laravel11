@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-digital_marketing" method="post">
+            <form action="{{ url('/tambah-digital_marketing') }}" method="post">
                 @csrf
                 <center>
                     <h5>Identitas Peserta</h5>
@@ -69,7 +69,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="kode_pos" class="form-label">Kode Pos</label>
-                    <input type="text" name="kode_pos" id="kode_pos" class="form-control" value="{{ old('kode_pos') }}">
+                    <input type="text" name="kode_pos" id="kode_pos" class="form-control"
+                        value="{{ old('kode_pos') }}">
                 </div>
                 <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
@@ -121,7 +122,7 @@
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="/" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ url('/') }}" class="btn btn-secondary">Kembali</a>
                         <button type="reset" class="btn btn-danger mx-2">Batal</button>
                         <button type="submit" class="btn btn-success">Daftar</button>
                     </center>

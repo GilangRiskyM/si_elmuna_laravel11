@@ -28,7 +28,7 @@
         <h3>Form Tambah Data Kuitansi</h3>
     </center>
     <hr>
-    <form action="/tambah-kuitansi" method="post">
+    <form action="{{ url('/tambah-kuitansi') }}" method="post">
         @csrf
         <div class="row">
             <div class="col-10 garis">
@@ -186,7 +186,7 @@
         <hr>
         <div class="my-2">
             <center>
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ url('/kuitansi') }}" class="btn btn-secondary">Kembali</a>
                 <button type="reset" class="btn btn-danger mx-2">Batal</button>
                 <button type="submit" class="btn btn-success">Kirim</button>
             </center>

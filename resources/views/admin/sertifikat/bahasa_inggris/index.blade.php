@@ -7,11 +7,11 @@
     </center>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="/sertifikat/bahasa-inggris" method="get">
+        <form action="{{ url('/sertifikat/bahasa-inggris') }}" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
-                <a href="/sertifikat/bahasa-inggris" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/sertifikat/bahasa-inggris') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
@@ -171,13 +171,13 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="/sertifikat/bahasa-inggris/edit/{{ $datum->id }}"
+                                    <a href="{{ url('/sertifikat/bahasa-inggris/edit/' . $datum->id) }}"
                                         class="btn btn-warning">Edit</a>
-                                    <a href="/sertifikat/bahasa-inggris/cetak/{{ $datum->id }}/sertifikat"
+                                    <a href="{{ url('/sertifikat/bahasa-inggris/cetak/' . $datum->id . '/sertifikat') }}"
                                         target="_blank" class="btn btn-success my-2">Print Sertifikat</a>
-                                    <a href="/sertifikat/bahasa-inggris/cetak/{{ $datum->id }}/nilai" target="_blank"
-                                        class="btn btn-success">Print Nilai</a>
-                                    <a href="/sertifikat/bahasa-inggris/hapus/{{ $datum->id }}"
+                                    <a href="{{ url('/sertifikat/bahasa-inggris/cetak/' . $datum->id . '/nilai') }}"
+                                        target="_blank" class="btn btn-success">Print Nilai</a>
+                                    <a href="{{ url('/sertifikat/bahasa-inggris/hapus/' . $datum->id) }}"
                                         class="btn btn-danger  my-2">Hapus</a>
                                 </center>
                             </td>

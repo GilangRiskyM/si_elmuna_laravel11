@@ -99,10 +99,10 @@
                     </tr>
                 </table>
                 <div class="mt-3">
-                    <form action="/destroy-mengemudi/{{ $data->id }}" method="POST">
+                    <form action="{{ url('/destroy-mengemudi/' . $data->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="/data_mengemudi" class="btn btn-secondary mx-3">Kembali</a>
+                        <a href="{{ url('/data_mengemudi') }}" class="btn btn-secondary mx-3">Kembali</a>
                         <button class="btn btn-danger mx-3" type="submit">Hapus</button>
                     </form>
                 </div>

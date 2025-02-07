@@ -1,12 +1,6 @@
 @extends('layout.admin')
 @section('title', 'Elmuna - Edit Video Editing & Fotografi')
 @section('content')
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="card">
         <div class="card-header">
             <center>
@@ -26,7 +20,7 @@
             @php
                 $paket = json_decode($data[0]->paket);
             @endphp
-            <form action="/update-video_editing_fotografi/{{ $data[0]->id }}" method="post">
+            <form action="{{ url('/update-video_editing_fotografi/' . $data[0]->id) }}" method="post">
                 @csrf
                 @method('put')
                 <center>
@@ -64,8 +58,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" name="alamat" id="alamat" class="form-control"
-                        value="{{ $data[0]->alamat }}">
+                    <input type="text" name="alamat" id="alamat" class="form-control" value="{{ $data[0]->alamat }}">
                 </div>
                 <div class="mb-3">
                     <label for="kecamatan" class="form-label">Kecamatan</label>
@@ -84,8 +77,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
-                    <input type="text" class="form-control" name="agama" id="agama"
-                        value="{{ $data[0]->agama }}">
+                    <input type="text" class="form-control" name="agama" id="agama" value="{{ $data[0]->agama }}">
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status Pekerjaan</label>
@@ -151,7 +143,7 @@
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="/data_video_editing_fotografi" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ url('/data_video_editing_fotografi') }}" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-success ms-2">Kirim</button>
                     </center>
                 </div>

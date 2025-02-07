@@ -436,7 +436,7 @@
                                         Kebumen, {{ tgl_indonesia3(date(now())) }} <br />
                                         Bagian Akademik
                                     </p>
-                                    <img src="/asset/img/tanda_tangan-2.png" alt="" width="50%">
+                                    <img src="{{ asset('/asset/img/tanda_tangan-2.png') }}" alt="" width="50%">
                                     <p>SITI SUGIHATI</p>
                                 </center>
                             </div>
@@ -450,10 +450,10 @@
     <hr>
     <div class="my-2">
         <center>
-            <form action="/destroy-sertifikat/bahasa-inggris/{{ $data->id }}" method="post">
+            <form action="{{ url('/destroy-sertifikat/bahasa-inggris/' . $data->id) }}" method="post">
                 @method('DELETE')
                 @csrf
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ url('/sertifikat/bahasa-inggris') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-danger">Hapus</button>
             </form>
         </center>

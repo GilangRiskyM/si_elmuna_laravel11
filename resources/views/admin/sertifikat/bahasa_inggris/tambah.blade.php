@@ -159,7 +159,7 @@
     </style>
 @endpush
 @section('content')
-    <form action="/tambah-sertifikat/bahasa-inggris" method="post">
+    <form action="{{ url('/tambah-sertifikat/bahasa-inggris') }}" method="post">
         @csrf
         @if ($errors->any())
             <div class="alert alert-danger mx-2">
@@ -402,7 +402,7 @@
         <hr>
         <div class="my-2">
             <center>
-                <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ url('/sertifikat/bahasa-inggris') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-success">Kirim</button>
             </center>
         </div>

@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/edit-pemasukan/{{ $data->id }}" method="post">
+            <form action="{{ url('/edit-pemasukan/' . $data->id) }}" method="post">
                 @csrf
                 @method('put')
                 <div class="mb-3">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ url('/pemasukan') }}" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-success ms-2">Kirim</button>
                     </center>
                 </div>

@@ -14,7 +14,7 @@
     </center>
     <div class="col-md-6">
         <label class="mb-2">Filter Data</label>
-        <form action="/laporan" method="get">
+        <form action="{{ url('/laporan') }}" method="get">
             <div class="input-group">
                 <span class="input-group-text">Pilih Data</span>
                 <select name="filter_tanggal" id="" class="form-select">
@@ -29,7 +29,7 @@
                     <option value="tahun_lalu" {{ $tanggal == 'tahun_lalu' ? 'selected' : null }}>Tahun Lalu</option>
                 </select>
                 <button type="submit" class="btn btn-primary">Filter</button>
-                <a href="/laporan" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/laporan') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
@@ -38,7 +38,7 @@
         <div class="row">
             <label for="" class="mb-2">Export Data</label>
             <div class="col-md-4">
-                <form action="/laporan/export" method="post">
+                <form action="{{ url('/laporan/export') }}" method="post">
                     @csrf
                     <div class="input-group">
                         <span class="input-group-text">Pilih Data</span>

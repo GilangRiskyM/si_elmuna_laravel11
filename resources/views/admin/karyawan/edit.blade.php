@@ -17,7 +17,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/edit-karyawan/{{ $data->id }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('/edit-karyawan/' . $data->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="mb-3">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="/karyawan" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ url('/karyawan') }}" class="btn btn-secondary">Kembali</a>
                         <button type="reset" class="btn btn-danger mx-2">Batal</button>
                         <button type="submit" class="btn btn-success">Kirim</button>
                     </center>

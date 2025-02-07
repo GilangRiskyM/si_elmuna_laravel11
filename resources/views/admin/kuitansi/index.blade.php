@@ -6,11 +6,11 @@
     </center>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="/kuitansi" method="get">
+        <form action="{{ url('/kuitansi') }}" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
-                <a href="/kuitansi" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/kuitansi') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
@@ -50,10 +50,10 @@
                             <td>{{ $datum->penerima }}</td>
                             <td>{{ $datum->cara_bayar }}</td>
                             <td>
-                                <a href="/kuitansi/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                <a href="/kuitansi/cetak/{{ $datum->id }}" target="_blank"
+                                <a href="{{ url('/kuitansi/edit/' . $data->id) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ url('/kuitansi/cetak/' . $data->id) }}" target="_blank"
                                     class="btn btn-info my-2">Print</a>
-                                <a href="/kuitansi/hapus/{{ $datum->id }}" class="btn btn-danger">Hapus</a>
+                                <a href="{{ url('/kuitansi/hapus/' . $data->id) }}" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                     @endforeach

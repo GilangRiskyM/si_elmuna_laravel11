@@ -4,37 +4,37 @@
 @section('content')
     <h1 class="text-center">Data Presensi</h1>
     <div class="my-3">
-        <a href="/presensi/tambah" class="btn btn-primary">Tambah Data</a>
+        <a href="{{ url('/presensi/tambah') }}" class="btn btn-primary">Tambah Data</a>
     </div>
     <hr>
     <div class="col-12 col-sm-8 col-md-4">
         <label for="" class="mb-2">Cari Data</label>
-        <form action="/presensi" method="get">
+        <form action="{{ url('/presensi') }}" method="get">
             <div class="input-group">
                 <input type="text" class="form-control ml-2" name="cari" placeholder="Kata Kunci" required>
                 <button type="submit" class="btn btn-primary"><i class='bx bx-search-alt-2'></i> Cari</button>
-                <a href="/presensi" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/presensi') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Filter Tanggal Presensi</label>
-        <form action="/presensi/filter" method="get">
+        <form action="{{ url('/presensi/filter') }}" method="get">
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
                 <input type="date" class="form-control" name="tgl_awal" required>
                 <span class="input-group-text">Sampai Tanggal : </span>
                 <input type="date" name="tgl_akhir" class="form-control" required>
                 <button type="submit" class="btn btn-primary">Filter</button>
-                <a href="/presensi" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/presensi') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Export Data ke Excel</label>
-        <form action="/presensi/export" method="post">
+        <form action="{{ url('/presensi/export') }}" method="post">
             @csrf
             <div class="input-group">
                 <span class="input-group-text">Dari Tanggal : </span>
@@ -81,7 +81,8 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="/presensi/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                                    <a href="{{ url('/presensi/hapus/' . $datum->id) }}"
+                                        class="btn btn-danger my-2">Hapus</a>
                                 </center>
                             </td>
                         </tr>

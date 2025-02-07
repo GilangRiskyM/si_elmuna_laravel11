@@ -26,7 +26,7 @@
             @php
                 $paket = json_decode($data[0]->paket);
             @endphp
-            <form action="/update-digital_marketing/{{ $data[0]->id }}" method="post">
+            <form action="{{ url('/update-digital_marketing/' . $data[0]->id) }}" method="post">
                 @csrf
                 @method('put')
                 <center>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="my-2">
                     <center>
-                        <a href="/data_digital_marketing" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ url('/data_digital_marketing') }}" class="btn btn-secondary">Kembali</a>
                         <button type="submit" class="btn btn-success ms-2">Kirim</button>
                     </center>
                 </div>

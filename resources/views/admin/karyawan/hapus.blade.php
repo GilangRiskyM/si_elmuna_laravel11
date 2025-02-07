@@ -33,10 +33,10 @@
                     </tr>
                 </table>
                 <div class="mt-3">
-                    <form action="/hapus-karyawan/{{ $data->id }}" method="POST">
+                    <form action="{{ url('/hapus-karyawan/' . $data->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="/karyawan" class="btn btn-secondary mx-3">Kembali</a>
+                        <a href="{{ url('/karyawan') }}" class="btn btn-secondary mx-3">Kembali</a>
                         <button class="btn btn-danger mx-3" type="submit">Hapus</button>
                     </form>
                 </div>

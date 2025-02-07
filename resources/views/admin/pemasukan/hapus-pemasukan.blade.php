@@ -23,10 +23,10 @@
                     </table>
                 </div>
                 <div class="mt-3">
-                    <form action="/destroy-pemasukan/{{ $data->id }}" method="POST">
+                    <form action="{{ url('/destroy-pemasukan/' . $data->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary mx-3">Kembali</a>
+                        <a href="{{ url('/pemasukan') }}" class="btn btn-secondary mx-3">Kembali</a>
                         <button class="btn btn-danger mx-3" type="submit">Hapus</button>
                     </form>
                 </div>

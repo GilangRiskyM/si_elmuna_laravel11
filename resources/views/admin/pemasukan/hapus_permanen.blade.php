@@ -26,10 +26,10 @@
                     </table>
                 </div>
                 <div class="mt-3">
-                    <form action="/force_delete-pemasukan/{{ $data->id }}" method="POST">
+                    <form action="{{ url('/force_delete-pemasukan/' . $data->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="/pemasukan/restore" class="btn btn-secondary mx-3">Kembali</a>
+                        <a href="{{ url('/pemasukan/restore') }}" class="btn btn-secondary mx-3">Kembali</a>
                         <button class="btn btn-danger mx-3" type="submit">Hapus</button>
                     </form>
                 </div>

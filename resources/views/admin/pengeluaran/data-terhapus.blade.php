@@ -6,7 +6,7 @@
         <h1 class="my-3">Data Pengeluaran Yang Dihapus</h1>
     </center>
     <div class="my-3">
-        <a href="/pengeluaran" class="btn btn-secondary">Kembali</a>
+        <a href="{{ url('/pengeluaran') }}" class="btn btn-secondary">Kembali</a>
     </div>
     <hr>
     <div class="table-responsive">
@@ -32,8 +32,8 @@
                             <td>{{ tgl_indonesia3($datum->created_at) }}</td>
                             <td>Rp. {{ $datum->jumlah_pengeluaran }} ,-</td>
                             <td>
-                                <a href="/restore-pengeluaran/{{ $datum->id }}" class="btn btn-secondary">Restore</a>
-                                <a href="/pengeluaran/hapus_permanen/{{ $datum->id }}" class="btn btn-danger my-2">
+                                <a href="{{ url('/restore-pengeluaran/' . $datum->id) }}" class="btn btn-secondary">Restore</a>
+                                <a href="{{ url('/pengeluaran/hapus_permanen/' . $datum->id) }}" class="btn btn-danger my-2">
                                     Hapus Permanen
                                 </a>
                             </td>

@@ -7,7 +7,7 @@
     <div class="col-12 col-md-12 my-3 text-center">
         {!! $qrCode !!}
     </div>
-    <div class="col-12 col-md-12 text-center">
+    <div class="col-12 col-md-12 text-center mb-3">
         <h2>
             {{ $data->nama }}
         </h2>
@@ -18,5 +18,8 @@
             <img src="{{ asset('tanda_tangan' . '/' . $data->tanda_tangan) }}" alt="Tanda Tangan {{ $data->nama }}"
                 class="img-thumbnail" width="20%">
         </center>
+    </div>
+    <div class="col-12 col-md-12 text-center">
+        <a href="{{ url('/karyawan') }}" class="btn btn-secondary">Kembali</a>
     </div>
 @endsection

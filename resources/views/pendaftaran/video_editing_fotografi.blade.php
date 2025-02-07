@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/tambah-video_editing_fotografi" method="post">
+            <form action="{{ url('/tambah-video_editing_fotografi') }}" method="post">
                 @csrf
                 <center>
                     <h5>Identitas Peserta</h5>
@@ -133,7 +133,7 @@
 
                     <div class="my-2">
                         <center>
-                            <a href="/" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ url('/') }}" class="btn btn-secondary">Kembali</a>
                             <button type="reset" class="btn btn-danger mx-2">Batal</button>
                             <button type="submit" class="btn btn-success">Kirim</button>
                         </center>

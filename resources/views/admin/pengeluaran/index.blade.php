@@ -6,13 +6,13 @@
         <h1 class="my-3">Pengeluaran</h1>
     </center>
     <div class="my-3">
-        <a href="/pengeluaran/tambah" class="btn btn-primary">Tambah Data</a>
-        <a href="/pengeluaran/restore" class="btn btn-secondary">Restore Data</a>
+        <a href="{{ url('/pengeluaran/tambah') }}" class="btn btn-primary">Tambah Data</a>
+        <a href="{{ url('/pengeluaran/restore') }}" class="btn btn-secondary">Restore Data</a>
     </div>
     <hr>
     <div class="col-md-6">
         <label class="mb-2">Filter Data</label>
-        <form action="/pengeluaran" method="get">
+        <form action="{{ url('/pengeluaran') }}" method="get">
             <div class="input-group">
                 <span class="input-group-text">Pilih Data</span>
                 <select name="filter_tanggal" id="" class="form-select">
@@ -27,7 +27,7 @@
                     <option value="tahun_lalu" {{ $tanggal == 'tahun_lalu' ? 'selected' : null }}>Tahun Lalu</option>
                 </select>
                 <button type="submit" class="btn btn-primary">Filter</button>
-                <a href="/pengeluaran" class="btn btn-danger">Batal</a>
+                <a href="{{ url('/pengeluaran') }}" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
@@ -36,7 +36,7 @@
         <div class="row">
             <label for="" class="mb-2">Export Data</label>
             <div class="col-md-4">
-                <form action="/pengeluaran/export" method="post">
+                <form action="{{ url('/pengeluaran/export') }}" method="post">
                     @csrf
                     <div class="input-group">
                         <span class="input-group-text">Pilih Data</span>
@@ -82,8 +82,8 @@
                             <td>Rp. {{ number_format($datum->jumlah_pengeluaran, 0, ',', '.') }} ,-</td>
                             <td>
                                 <center>
-                                    <a href="/pengeluaran/edit/{{ $datum->id }}" class="btn btn-warning">Edit</a>
-                                    <a href="/pengeluaran/hapus/{{ $datum->id }}" class="btn btn-danger my-2">Hapus</a>
+                                    <a href="{{ url('/pengeluaran/edit/') }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/pengeluaran/hapus/') }}" class="btn btn-danger my-2">Hapus</a>
                                 </center>
                             </td>
                         </tr>

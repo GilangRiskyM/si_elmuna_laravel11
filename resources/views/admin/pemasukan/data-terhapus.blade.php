@@ -5,14 +5,8 @@
     <center>
         <h1 class="my-3">Data Pemasukan Yang Dihapus</h1>
     </center>
-    @if (Session::has('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session::get('message') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="my-3">
-        <a href="/pemasukan" class="btn btn-secondary">Kembali</a>
+        <a href="{{ url('/pemasukan') }}" class="btn btn-secondary">Kembali</a>
     </div>
     <hr>
     <div class="table-responsive">
@@ -38,8 +32,8 @@
                             <td>{{ tgl_indonesia3($datum->created_at) }}</td>
                             <td>Rp. {{ $datum->jumlah_pemasukan }} ,-</td>
                             <td>
-                                <a href="/restore-pemasukan/{{ $datum->id }}" class="btn btn-secondary">Restore</a>
-                                <a href="/pemasukan/hapus_permanen/{{ $datum->id }}" class="btn btn-danger my-2">
+                                <a href="{{ url('/restore-pemasukan/' . $datum->id) }}" class="btn btn-secondary">Restore</a>
+                                <a href="{{ url('/pemasukan/hapus_permanen/' . $datum->id) }}" class="btn btn-danger my-2">
                                     Hapus Permanen
                                 </a>
                             </td>
