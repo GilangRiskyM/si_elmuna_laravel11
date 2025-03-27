@@ -36,7 +36,11 @@
                             <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                            @if (auth()->check())
+                                <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                            @else
+                                <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                            @endif
                         </li>
                     </ul>
                 </div>

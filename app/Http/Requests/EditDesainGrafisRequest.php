@@ -58,7 +58,7 @@ class EditDesainGrafisRequest extends FormRequest
             'status.required' => 'Status wajib diisi',
             'nama_ibu.required' => 'Nama Ibu wajib diisi',
             'nama_ayah.required' => 'Nama Ayah wajib diisi',
-            'telepon.required' => 'Telepon wajib diisi',
+            'telepon.required' => 'No. WA wajib diisi',
             'email.required' => 'Email wajib diisi',
             'paket.required' => 'Paket wajib diisi',
         ];
