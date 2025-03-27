@@ -173,15 +173,19 @@
                     <label for="paket" class="form-label">Pilih Paket</label>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_pemula" class="form-check-input"
-                            value="PAKET PEMULA">
+                            value="PAKET PEMULA" {{ in_array('PAKET PEMULA', old('paket', [])) ? 'checked' : '' }}>
                         <label for="paket_pemula" class="form-check-label">PAKET PEMULA</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" name="paket[]" id="paket_mahir" class="form-check-input"
-                            value="PAKET MAHIR">
+                            value="PAKET MAHIR" {{ in_array('PAKET MAHIR', old('paket', [])) ? 'checked' : '' }}>
                         <label for="paket_mahir" class="form-check-label">PAKET MAHIR</label>
                     </div>
+                    @error('paket')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="my-2">
                     <center>
                         <a href="{{ url('/') }}" class="btn btn-secondary">Kembali</a>
