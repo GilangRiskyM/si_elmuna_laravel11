@@ -82,10 +82,10 @@
                             <td>Rp. {{ number_format($datum->jumlah_pemasukan, 0, ',', '.') }} ,-</td>
                             <td>
                                 <center>
-                                    <a href="{{ url('/pemasukan/edit/' . $data->id) }}" class="btn btn-warning">Edit</a>
-                                    <a href="{{ url('/pemasukan/hapus/' . $data->id) }}"
+                                    <a href="{{ url('/pemasukan/edit/' . $datum->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/pemasukan/hapus/' . $datum->id) }}"
                                         class="btn btn-danger my-2">Hapus</a>
-                                    <a href="{{ url('/kuitansi/tambah/' . $data->id) }}" class="btn btn-primary">Tambah
+                                    <a href="{{ url('/kuitansi/tambah/' . $datum->id) }}" class="btn btn-primary">Tambah
                                         Kuitansi</a>
                                 </center>
                             </td>

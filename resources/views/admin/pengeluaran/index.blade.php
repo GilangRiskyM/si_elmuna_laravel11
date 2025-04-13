@@ -82,8 +82,9 @@
                             <td>Rp. {{ number_format($datum->jumlah_pengeluaran, 0, ',', '.') }} ,-</td>
                             <td>
                                 <center>
-                                    <a href="{{ url('/pengeluaran/edit/') }}" class="btn btn-warning">Edit</a>
-                                    <a href="{{ url('/pengeluaran/hapus/') }}" class="btn btn-danger my-2">Hapus</a>
+                                    <a href="{{ url('/pengeluaran/edit/' . $datum->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/pengeluaran/hapus/' . $datum->id) }}"
+                                        class="btn btn-danger my-2">Hapus</a>
                                 </center>
                             </td>
                         </tr>
