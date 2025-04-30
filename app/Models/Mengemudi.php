@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,4 +32,5 @@ class Mengemudi extends Model
         'tgl_mulai',
         'tgl_selesai',
     ];
+
 }

@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Elmuna - Data Bahasa Inggris')
 @section('content')
     <center>
@@ -78,60 +77,58 @@
             </thead>
             <tbody>
                 @if (count($data) > 0)
-                    @foreach ($data as $datum)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $datum->nik }}</td>
-                            <td>{{ $datum->nisn }}</td>
-                            <td>{{ $datum->nama }}</td>
-                            <td>{{ $datum->tempat_lahir }}</td>
-                            <td>{{ $datum->tanggal_lahir }}</td>
-                            <td>{{ $datum->jk }}</td>
-                            <td>{{ $datum->alamat }}</td>
-                            <td>{{ $datum->kecamatan }}</td>
-                            <td>{{ $datum->kabupaten }}</td>
-                            <td>{{ $datum->kode_pos }}</td>
-                            <td>{{ $datum->agama }}</td>
-                            <td>{{ $datum->status }}</td>
-                            <td>{{ $datum->nama_ibu }}</td>
-                            <td>{{ $datum->nama_ayah }}</td>
-                            <td>{{ $datum->telepon }}</td>
-                            <td>{{ $datum->email }}</td>
-                            <td>{{ tgl_indonesia3($datum->created_at) }}</td>
-                            <td>
-                                @if ($datum->tgl_mulai == !null)
-                                    {{ tgl_indonesia3($datum->tgl_mulai) }}
-                                @else
-                                    -
-                                @endif
-                            </td>
-                            <td>
-                                @if ($datum->tgl_selesai == !null)
-                                    {{ tgl_indonesia3($datum->tgl_selesai) }}
-                                @else
-                                    -
-                                @endif
-                            </td>
-                            <td>
-                                @php
-                                    $paketan = json_decode($datum->paket);
-                                @endphp
-                                @foreach ($paketan as $paket)
-                                    {{ $paket }},
-                                @endforeach
-                            </td>
-                            <td>
-                                <center>
-                                    <a href="{{ url('/edit_bahasa_inggris/' . $datum->id) }}"
-                                        class="btn btn-warning">Edit</a>
-                                    <a href="{{ url('/hapus_bahasa_inggris/' . $datum->id) }}"
-                                        class="btn btn-danger my-2">Hapus</a>
-                                    <a href="{{ url('/sertifikat/tambah/bahasa-inggris/' . $datum->id) }}"
-                                        class="btn btn-primary">Buat Sertifikat</a>
-                                </center>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach ($data as $datum)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $datum->nik }}</td>
+                                    <td>{{ $datum->nisn }}</td>
+                                    <td>{{ $datum->nama }}</td>
+                                    <td>{{ $datum->tempat_lahir }}</td>
+                                    <td>{{ $datum->tanggal_lahir->isoFormat('D MMMM Y') }}</td>
+                                    <td>{{ $datum->jk }}</td>
+                                    <td>{{ $datum->alamat }}</td>
+                                    <td>{{ $datum->kecamatan }}</td>
+                                    <td>{{ $datum->kabupaten }}</td>
+                                    <td>{{ $datum->kode_pos }}</td>
+                                    <td>{{ $datum->agama }}</td>
+                                    <td>{{ $datum->status }}</td>
+                                    <td>{{ $datum->nama_ibu }}</td>
+                                    <td>{{ $datum->nama_ayah }}</td>
+                                    <td>{{ $datum->telepon }}</td>
+                                    <td>{{ $datum->email }}</td>
+                                    <td>{{ $datum->created_at->isoFormat('D MMMM Y') }}</td>
+                                    <td>
+                                        @if ($datum->tgl_mulai == !null)
+                                            {{ $datum->tgl_mulai->isoFormat('D MMMM Y') }}
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($datum->tgl_selesai == !null)
+                                            {{ $datum->tgl_selesai->isoFormat('D MMMM Y') }}
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @php
+                                            $paketan = json_decode($datum->paket);
+                                        @endphp
+                                        @foreach ($paketan as $paket)
+                                            {{ $paket }},
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <a href="{{ url('/edit_bahasa_inggris/' . $datum->id) }}" class="btn btn-warning">Edit</a>
+                                            <a href="{{ url('/hapus_bahasa_inggris/' . $datum->id) }}" class="btn btn-danger my-2">Hapus</a>
+                                            <a href="{{ url('/sertifikat/tambah/bahasa-inggris/' . $datum->id) }}"
+                                                class="btn btn-primary">Buat Sertifikat</a>
+                                        </center>
+                                    </td>
+                                </tr>
+                        @endforeach
                 @else
                     <tr>
                         <td colspan="22">

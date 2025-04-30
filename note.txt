@@ -1,3 +1,9 @@
-sing kurang ring bagian hapus ro hapus permanen
-kode pos, tgl mulai dan tgl selesai kursus
-jebul created_at ra bisa digolet nggo fitur search
+Dockerize
+1. Dockerfile
+2. docker-compose.yml
+3. docker-entrypoint.sh
+4. config/octane.php
+
+Sing kurang
+1. Ngerubah format tanggal deleng bae nang model bagian $cast
+2. Nambah old() nang bagian blade->edit

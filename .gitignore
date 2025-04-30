@@ -18,3 +18,9 @@ yarn-error.log
 /.vscode
 
 .vercel
+
+**/caddy
+frankenphp
+frankenphp-worker.php
+rr
+.rr.yaml

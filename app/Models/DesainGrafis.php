@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,5 +31,11 @@ class DesainGrafis extends Model
         'paket',
         'tgl_mulai',
         'tgl_selesai',
+    ];
+
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+        'tgl_mulai' => 'date',
+        'tgl_selesai' => 'date',
     ];
 }

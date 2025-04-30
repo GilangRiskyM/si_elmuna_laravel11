@@ -35,6 +35,10 @@ use App\Http\Controllers\SertifikatDigitalMarketingController;
 |
 */
 
+Route::get('/info', function () {
+    dd(phpinfo());
+});
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'adminDashboard'])->middleware('auth');
 

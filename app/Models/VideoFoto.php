@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -34,4 +33,5 @@ class VideoFoto extends Model
         'tgl_selesai',
 
     ];
+
 }
