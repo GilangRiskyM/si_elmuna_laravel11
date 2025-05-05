@@ -185,7 +185,7 @@
         <hr>
         <div class="my-2">
             <center>
-                <a href="{{ url('/kuitansi') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ url('/pemasukan') }}" class="btn btn-secondary">Kembali</a>
                 <button type="reset" class="btn btn-danger mx-2">Batal</button>
                 <button type="submit" class="btn btn-success">Kirim</button>
             </center>
