@@ -33,7 +33,7 @@
                     <tr>
                         <td>Tanggal Lahir</td>
                         <td>:</td>
-                        <td>{{ $data->tanggal_lahir }}</td>
+                        <td>{{ $data->tanggal_lahir->isoFormat('D MMMM Y') }}</td>
                     </tr>
                     <tr>
                         <td>Jenis Kelamin</td>

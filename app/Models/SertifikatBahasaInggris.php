@@ -32,4 +32,10 @@ class SertifikatBahasaInggris extends Model
         'nilai4',
         'nilai5',
     ];
+
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+        'tgl_mulai' => 'date',
+        'tgl_selesai' => 'date',
+    ];
 }

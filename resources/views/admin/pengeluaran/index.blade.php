@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Pengeluaran')
 @section('content')
     <center>
@@ -78,7 +77,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $datum->ket_pengeluaran }}</td>
-                            <td>{{ tgl_indonesia3($datum->created_at) }}</td>
+                            <td>{{ $datum->created_at->isoFormat('DD MMMM Y') }}</td>
                             <td>Rp. {{ number_format($datum->jumlah_pengeluaran, 0, ',', '.') }} ,-</td>
                             <td>
                                 <center>

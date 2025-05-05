@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Laporan')
 @push('css')
     <style>
@@ -85,7 +84,7 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->ket_pemasukan }}</td>
-                                        <td>{{ tgl_indonesia3($data->created_at) }}</td>
+                                        <td>{{ $data->created_at->isoFormat('DD MMMM Y') }}</td>
                                         <td>Rp. {{ number_format($data->jumlah_pemasukan, 0, ',', '.') }} ,-</td>
                                     </tr>
                                 @endforeach
@@ -125,7 +124,7 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $data->ket_pengeluaran }}</td>
-                                        <td>{{ tgl_indonesia3($data->created_at) }}</td>
+                                        <td>{{ $data->created_at->isoFormat('DD MMMM Y') }}</td>
                                         <td>Rp. {{ number_format($data->jumlah_pengeluaran, 0, ',', '.') }} ,-</td>
                                     </tr>
                                 @endforeach

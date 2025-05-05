@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Edit Sertifikat Digital Marketing')
 @push('css')
     <style>
@@ -202,7 +201,8 @@
                                 <td>Tempat, Tanggal Lahir</td>
                                 <td> &nbsp;:&nbsp; </td>
                                 <td><input type="text" name="tempat_lahir" value="{{ $data->tempat_lahir }}">,
-                                    <input type="date" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}"
+                                    <input type="date" name="tanggal_lahir"
+                                        value="{{ $data->tanggal_lahir->format('Y-m-d') }}"
                                         style="width: 135px !important;">
                                 </td>
                             </tr>
@@ -221,15 +221,15 @@
                                 diselenggarakan oleh </p>
                             <p>LKP ELMUNA dari tanggal
                                 @if ($data->tgl_mulai == !null)
-                                    <input type="date" name="tgl_mulai" id="" value="{{ $data->tgl_mulai }}"
-                                        style="width: 135px !important;">
+                                    <input type="date" name="tgl_mulai" id=""
+                                        value="{{ $data->tgl_mulai->format('Y-m-d') }}" style="width: 135px !important;">
                                 @else
                                     <input type="date" name="tgl_mulai" id="" style="">
                                 @endif
                                 sampai
                                 @if ($data->tgl_selesai == !null)
                                     <input type="date" name="tgl_selesai" id=""
-                                        value="{{ $data->tgl_selesai }}" style="width: 135px !important;">
+                                        value="{{ $data->tgl_selesai->format('Y-m-d') }}" style="width: 135px !important;">
                                 @else
                                     <input type="date" name="tgl_selesai" id="">
                                 @endif
@@ -242,7 +242,7 @@
                 <div class="col-md-2 foto"></div>
                 <div class="col-md-4 mb-5 mbuh">
                     <center>
-                        <p>Kebumen, {{ tgl_indonesia3(date(now())) }} <br>
+                        <p>Kebumen, {{ now()->isoFormat('D MMMM Y') }} <br>
                             LKP ELMUNA</p>
                         <img src="{{ asset('asset/img/barcode.gif') }}" alt="" width="15%" class="tanda_tangan">
                         <p class="nama_direk"><b><u>MUHDORI, A. Md. T., S. Tr. Kom</u></b></p>
@@ -387,7 +387,7 @@
                                 <div class="tanda-tangan">
                                     <center>
                                         <p>
-                                            Kebumen, {{ tgl_indonesia3(date(now())) }} <br />
+                                            Kebumen, {{ now()->isoFormat('D MMMM Y') }} <br />
                                             Bagian Akademik
                                         </p>
                                         <img src="{{ asset('/asset/img/tanda_tangan-2.png') }}" alt=""

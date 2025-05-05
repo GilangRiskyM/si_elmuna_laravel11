@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Presensi')
 @section('content')
     <h1 class="text-center">Data Presensi</h1>
@@ -65,8 +64,8 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $datum->nama }}</td>
                             <td>{{ $datum->jabatan }}</td>
-                            <td>{{ date('H:i', strtotime($datum->waktu_presensi)) }} WIB,
-                                {{ tgl_indonesia3($datum->waktu_presensi) }}
+                            <td>{{ $datum->waktu_presensi->isoFormat('HH:mm') }} WIB,
+                                {{ $datum->waktu_presensi->isoFormat('D MMMM Y') }}
                             </td>
                             <td class="text-center">
                                 @if ($datum->status == 'Hadir')

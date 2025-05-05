@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Hapus Sertifikat Mengemudi')
 @push('css')
     <style>
@@ -199,7 +198,7 @@
                         <tr>
                             <td>Tempat, tanggal lahir</td>
                             <td> &nbsp;:&nbsp; </td>
-                            <td>{{ $data->tempat_lahir }}, {{ tgl_indonesia3($data->tanggal_lahir) }}</td>
+                            <td>{{ $data->tempat_lahir }}, {{ $data->tanggal_lahir->isoFormat('D MMMM Y') }}</td>
                         </tr>
                         <tr>
                             <td>Nomor Induk Siswa</td>
@@ -211,8 +210,9 @@
                     </p>
                     <div class="telah">
                         <p>Telah Menyelesaikan Pendidikan Mengemudi Program {{ $data->program }}</p>
-                        <p>yang diselenggarakan oleh LKP ELMUNA dari tanggal {{ tgl_indonesia3($data->tgl_mulai) }} sampai
-                            {{ tgl_indonesia3($data->tgl_selesai) }}
+                        <p>yang diselenggarakan oleh LKP ELMUNA dari tanggal {{ $data->tgl_mulai->isoFormat('D MMMM Y') }}
+                            sampai
+                            {{ $data->tgl_selesai->isoFormat('D MMMM Y') }}
                         </p>
                         <p>dan dinyatakan : LULUS</p>
                     </div>
@@ -222,7 +222,7 @@
             <div class="col-md-2 foto"></div>
             <div class="col-md-4 mb-5 mbuh">
                 <center>
-                    <p>Kebumen, {{ tgl_indonesia3(date(now())) }}</p>
+                    <p>Kebumen, {{ now()->isoFormat('D MMMM Y') }}</p>
                     <p>LKP ELMUNA</p>
                     <img src="{{ asset('/asset/img/barcode.gif') }}" alt="" width="15%" class="tanda_tangan">
                     <p class="nama_direk"><b><u>MUHDORI, A. Md. T., S. Tr. Kom</u></b></p>

@@ -50,10 +50,10 @@
                             <td>{{ $datum->penerima }}</td>
                             <td>{{ $datum->cara_bayar }}</td>
                             <td>
-                                <a href="{{ url('/kuitansi/edit/' . $data->id) }}" class="btn btn-warning">Edit</a>
-                                <a href="{{ url('/kuitansi/cetak/' . $data->id) }}" target="_blank"
+                                <a href="{{ url('/kuitansi/edit/' . $datum->id) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ url('/kuitansi/cetak/' . $datum->id) }}" target="_blank"
                                     class="btn btn-info my-2">Print</a>
-                                <a href="{{ url('/kuitansi/hapus/' . $data->id) }}" class="btn btn-danger">Hapus</a>
+                                <a href="{{ url('/kuitansi/hapus/' . $datum->id) }}" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                     @endforeach

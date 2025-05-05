@@ -1,4 +1,3 @@
-@include('fungsi.fungsi_tgl_indo')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,22 +99,22 @@
                 <tr>
                     <td>NO.KWT</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ $data->id }}-{{ date('Y') }}</td>
+                    <td>{{ $data->id }}-{{ now()->isoFormat('Y') }}</td>
                 </tr>
                 <tr>
                     <td>TANGGAL</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ date('d/m/Y') }}</td>
+                    <td>{{ now()->isoFormat('DD/MM/Y') }}</td>
                 </tr>
                 <tr>
                     <td>HARI</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ tgl_indonesia4(date('l')) }}</td>
+                    <td>{{ now()->isoFormat('dddd') }}</td>
                 </tr>
                 <tr>
                     <td>JAM</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ date('H.i') }}</td>
+                    <td>{{ now()->isoFormat('HH:mm') }}</td>
                 </tr>
             </table>
         </div>
@@ -223,22 +222,22 @@
                 <tr>
                     <td>NO.KWT</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ $data->id }}-{{ date('Y') }}</td>
+                    <td>{{ $data->id }}-{{ now()->isoFormat('Y') }}</td>
                 </tr>
                 <tr>
                     <td>TANGGAL</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ date('d/m/Y') }}</td>
+                    <td>{{ now()->isoFormat('DD/MM/Y') }}</td>
                 </tr>
                 <tr>
                     <td>HARI</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ tgl_indonesia4(date('l')) }}</td>
+                    <td>{{ now()->isoFormat('dddd') }}</td>
                 </tr>
                 <tr>
                     <td>JAM</td>
                     <td>&nbsp;:&nbsp;</td>
-                    <td>{{ date('H.i') }}</td>
+                    <td>{{ now()->isoFormat('HH:mm') }}</td>
                 </tr>
             </table>
         </div>

@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Edit Sertifikat Pemrograman')
 @push('css')
     <style>

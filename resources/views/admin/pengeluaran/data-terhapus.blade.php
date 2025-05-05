@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Restore Pengeluaran')
 @section('content')
     <center>
@@ -29,10 +28,11 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $datum->ket_pengeluaran }}</td>
-                            <td>{{ tgl_indonesia3($datum->created_at) }}</td>
+                            <td>{{ $datum->created_at->isoFormat('DD MMMM Y') }}</td>
                             <td>Rp. {{ $datum->jumlah_pengeluaran }} ,-</td>
                             <td>
-                                <a href="{{ url('/restore-pengeluaran/' . $datum->id) }}" class="btn btn-secondary">Restore</a>
+                                <a href="{{ url('/restore-pengeluaran/' . $datum->id) }}"
+                                    class="btn btn-secondary">Restore</a>
                                 <a href="{{ url('/pengeluaran/hapus_permanen/' . $datum->id) }}" class="btn btn-danger my-2">
                                     Hapus Permanen
                                 </a>

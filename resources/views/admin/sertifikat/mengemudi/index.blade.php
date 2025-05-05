@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Data Sertifikat Mengemudi')
 @section('content')
     <center>
@@ -56,20 +55,20 @@
                             <td>{{ $datum->nama }}</td>
                             <td>{{ $datum->no_sertifikat }}</td>
                             <td>{{ $datum->tempat_lahir }}</td>
-                            <td>{{ $datum->tanggal_lahir }}</td>
+                            <td>{{ $datum->tanggal_lahir->isoFormat('D MMMM Y') }}</td>
                             <td>{{ $datum->nis }}</td>
                             <td>{{ $datum->program }}</td>
 
                             <td>
                                 @if ($datum->tgl_mulai == !null)
-                                    {{ tgl_indonesia3($datum->tgl_mulai) }}
+                                    {{ $datum->tgl_mulai->isoFormat('D MMMM Y') }}
                                 @else
                                     -
                                 @endif
                             </td>
                             <td>
                                 @if ($datum->tgl_selesai == !null)
-                                    {{ tgl_indonesia3($datum->tgl_selesai) }}
+                                    {{ $datum->tgl_selesai->isoFormat('D MMMM Y') }}
                                 @else
                                     -
                                 @endif
@@ -175,8 +174,8 @@
                                         class="btn btn-warning">Edit</a>
                                     <a href="{{ url('/sertifikat/mengemudi/cetak/' . $datum->id . '/sertifikat') }}"
                                         target="_blank" class="btn btn-success my-2">Print Sertifikat</a>
-                                    <a href="{{ url('/sertifikat/mengemudi/cetak/' . $datum->id . '/nilai') }}" target="_blank"
-                                        class="btn btn-success">Print Nilai</a>
+                                    <a href="{{ url('/sertifikat/mengemudi/cetak/' . $datum->id . '/nilai') }}"
+                                        target="_blank" class="btn btn-success">Print Nilai</a>
                                     <a href="{{ url('/sertifikat/mengemudi/hapus/' . $datum->id) }}"
                                         class="btn btn-danger my-2">Hapus</a>
                                 </center>

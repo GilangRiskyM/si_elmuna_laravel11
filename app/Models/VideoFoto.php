@@ -34,4 +34,9 @@ class VideoFoto extends Model
 
     ];
 
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+        'tgl_mulai' => 'date',
+        'tgl_selesai' => 'date',
+    ];
 }

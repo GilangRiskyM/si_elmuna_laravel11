@@ -1,5 +1,4 @@
 @extends('layout.admin')
-@include('fungsi.fungsi_tgl_indo')
 @section('title', 'Elmuna - Data Video Editing & Fotografi')
 @section('content')
     <center>
@@ -97,17 +96,17 @@
                             <td>{{ $datum->nama_ayah }}</td>
                             <td>{{ $datum->telepon }}</td>
                             <td>{{ $datum->email }}</td>
-                            <td>{{ tgl_indonesia3($datum->created_at) }}</td>
+                            <td>{{ $datum->created_at->isoFormat('D MMMM Y') }}</td>
                             <td>
                                 @if ($datum->tgl_mulai == !null)
-                                    {{ tgl_indonesia3($datum->tgl_mulai) }}
+                                    {{ $datum->tgl_mulai->isoFormat('D MMMM Y') }}
                                 @else
                                     -
                                 @endif
                             </td>
                             <td>
                                 @if ($datum->tgl_selesai == !null)
-                                    {{ tgl_indonesia3($datum->tgl_selesai) }}
+                                    {{ $datum->tgl_selesai->isoFormat('D MMMM Y') }}
                                 @else
                                     -
                                 @endif

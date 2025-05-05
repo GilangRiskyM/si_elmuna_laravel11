@@ -17,4 +17,8 @@ class Presensi extends Model
         'waktu_presensi',
         'status'
     ];
+
+    protected $casts = [
+        'waktu_presensi'=> 'datetime',
+    ];
 }

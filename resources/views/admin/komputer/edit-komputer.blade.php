@@ -52,7 +52,7 @@
                 <div class="mb-3">
                     <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                     <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control"
-                        value="{{ $data[0]->tanggal_lahir }}">
+                        value="{{ $data[0]->tanggal_lahir->format('Y-m-d') }}">
                 </div>
                 <div class="mb-3">
                     <label for="jk" class="form-label">Jenis Kelamin</label>
@@ -159,12 +159,12 @@
                 <div class="mb-3">
                     <label for="tgl_mulai" class="form-label">Tanggal Mulai Kursus</label>
                     <input type="date" class="form-control" name="tgl_mulai" id="tgl_mulai"
-                        value="{{ $data[0]->tgl_mulai }}">
+                        value="{{ old('tgl_mulai', $data[0]->tgl_mulai ? $data[0]->tgl_mulai->format('Y-m-d') : '') }}">
                 </div>
                 <div class="mb-3">
                     <label for="tgl_selesai" class="form-label">Tanggal Selesai Kursus</label>
                     <input type="date" class="form-control" name="tgl_selesai" id="tgl_selesai"
-                        value="{{ $data[0]->tgl_selesai }}">
+                        value="{{ old('tgl_selesai', $data[0]->tgl_selesai ? $data[0]->tgl_selesai->format('Y-m-d') : '') }}">
                 </div>
                 <div class="my-2">
                     <center>
