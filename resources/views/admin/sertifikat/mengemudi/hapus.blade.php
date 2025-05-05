@@ -433,7 +433,7 @@
                             <div class="tanda-tangan">
                                 <center>
                                     <p>
-                                        Kebumen, {{ tgl_indonesia3(date(now())) }} <br />
+                                        Kebumen, {{ now()->isoFormat('D MMMM Y') }} <br />
                                         Bagian Akademik
                                     </p>
                                     <img src="{{ asset('/asset/img/tanda_tangan-2.png') }}" alt="" width="50%">

@@ -141,7 +141,7 @@
             <div class="col-md-2 foto"></div>
             <div class="col-md-4 mb-5 mbuh">
                 <center>
-                    <p>Kebumen, {{ tgl_indonesia3(date(now())) }}</p>
+                    <p>Kebumen, {{ now()->isoFormat('D MMMM Y') }}</p>
                     <p>LKP ELMUNA</p>
                     <img src="{{ asset('/asset/img/tanda_tangan.png') }}" alt="" width="50%"
                         class="tanda_tangan">

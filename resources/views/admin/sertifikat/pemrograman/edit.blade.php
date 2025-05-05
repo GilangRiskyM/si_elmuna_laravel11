@@ -241,7 +241,7 @@
                 <div class="col-md-2 foto"></div>
                 <div class="col-md-4 mb-5 mbuh">
                     <center>
-                        <p>Kebumen, {{ tgl_indonesia3(date(now())) }} <br>
+                        <p>Kebumen, {{ now()->isoFormat('D MMMM Y') }} <br>
                             LKP ELMUNA</p>
                         <img src="{{ asset('asset/img/barcode.gif') }}" alt="" width="15%" class="tanda_tangan">
                         <p class="nama_direk"><b><u>MUHDORI, A. Md. T., S. Tr. Kom</u></b></p>
@@ -386,7 +386,7 @@
                                 <div class="tanda-tangan">
                                     <center>
                                         <p>
-                                            Kebumen, {{ tgl_indonesia3(date(now())) }} <br />
+                                            Kebumen, {{ now()->isoFormat('D MMMM Y') }} <br />
                                             Bagian Akademik
                                         </p>
                                         <img src="{{ asset('/asset/img/tanda_tangan-2.png') }}" alt=""
