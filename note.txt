@@ -3,7 +3,3 @@ Dockerize
 2. docker-compose.yml
 3. docker-entrypoint.sh
 4. config/octane.php
-
-Sing kurang
-1. Ngerubah format tanggal nang blade gon folder admin deleng bae ring model bagian $cast
-2. Nambah old() nang bagian blade->edit
