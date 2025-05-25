@@ -36,7 +36,7 @@ use App\Http\Controllers\SertifikatDigitalMarketingController;
 */
 
 // Route::get('/info', function () {
-//     dd(phpinfo());
+//     return phpinfo();
 // });
 
 Route::get('/', [HomeController::class, 'index']);
@@ -189,6 +189,7 @@ Route::post('/tambah-sertifikat/bahasa-inggris', [SertifikatBahasaInggrisControl
 Route::get('/sertifikat/bahasa-inggris/edit/{id}', [SertifikatBahasaInggrisController::class, 'edit'])->middleware('auth');
 Route::put('/edit-sertifikat/bahasa-inggris/{id}', [SertifikatBahasaInggrisController::class, 'update'])->middleware('auth');
 Route::get('/sertifikat/bahasa-inggris/cetak/{id}/sertifikat', [SertifikatBahasaInggrisController::class, 'cetak_sertifikat'])->middleware('auth');
+Route::get('/sertifikat/bahasa-inggris/cetak/{id}/print-depan', [SertifikatBahasaInggrisController::class, 'print_depan'])->middleware('auth');
 Route::get('/sertifikat/bahasa-inggris/cetak/{id}/nilai', [SertifikatBahasaInggrisController::class, 'cetak_nilai'])->middleware('auth');
 Route::get('/sertifikat/bahasa-inggris/hapus/{id}', [SertifikatBahasaInggrisController::class, 'delete'])->middleware('auth');
 Route::delete('/destroy-sertifikat/bahasa-inggris/{id}', [SertifikatBahasaInggrisController::class, 'destroy'])->middleware('auth');

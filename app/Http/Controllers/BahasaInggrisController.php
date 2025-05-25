@@ -225,7 +225,7 @@ class BahasaInggrisController extends Controller
             }
             $sheet->setCellValue('T' . $rows, $tglSelesai);
 
-            // Decode the JSON paket
+            // Decode JSON paket
             $paket = json_decode($data->paket, true);
             if (json_last_error() === JSON_ERROR_NONE) {
                 // Jika json_decode berhasil

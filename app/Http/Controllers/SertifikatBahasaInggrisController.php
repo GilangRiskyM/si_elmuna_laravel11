@@ -98,4 +98,10 @@ class SertifikatBahasaInggrisController extends Controller
         $data = SertifikatBahasaInggris::findOrFail($id);
         return view('admin.sertifikat.bahasa_inggris.cetak-nilai', ['data' => $data]);
     }
+
+    function print_depan($id)
+    {
+        $data = SertifikatBahasaInggris::findOrFail($id);
+        return view('admin.sertifikat.bahasa_inggris.cetak-print-depan', ['data' => $data]);
+    }
 }

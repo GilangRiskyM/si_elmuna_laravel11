@@ -148,7 +148,7 @@ class PresensiController extends Controller
             $rows++;
         }
 
-        $writer  = new Xlsx($spreadsheet);
+        $writer = new Xlsx($spreadsheet);
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename="' . $namaFile . '"');
         header('Cache-Control: max-age=0');
