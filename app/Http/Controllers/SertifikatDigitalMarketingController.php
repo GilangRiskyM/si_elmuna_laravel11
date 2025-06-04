@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DigitalMarketing;
-use Illuminate\Support\Facades\Session;
 use App\Models\SertifikatDigitalMarketing;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
@@ -96,5 +95,11 @@ class SertifikatDigitalMarketingController extends Controller
     {
         $sql = SertifikatDigitalMarketing::findOrFail($id);
         return view('admin.sertifikat.digital_marketing.cetak-nilai', ['data' => $sql]);
+    }
+
+    function print_depan($id)
+    {
+        $data = SertifikatDigitalMarketing::findOrFail($id);
+        return view('admin.sertifikat.digital_marketing.cetak-print-depan', ['data' => $data]);
     }
 }

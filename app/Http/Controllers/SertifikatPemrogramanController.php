@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Pemrograman;
 use Illuminate\Http\Request;
 use App\Models\SertifikatPemrograman;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
 
@@ -97,5 +96,11 @@ class SertifikatPemrogramanController extends Controller
     {
         $data = SertifikatPemrograman::findOrFail($id);
         return view('admin.sertifikat.pemrograman.cetak-nilai', ['data' => $data]);
+    }
+
+    function print_depan($id)
+    {
+        $data = SertifikatPemrograman::findOrFail($id);
+        return view('admin.sertifikat.pemrograman.cetak-print-depan', ['data' => $data]);
     }
 }

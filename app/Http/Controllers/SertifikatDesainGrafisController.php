@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\DesainGrafis;
 use Illuminate\Http\Request;
 use App\Models\SertifikatDesainGrafis;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
 
@@ -96,5 +95,11 @@ class SertifikatDesainGrafisController extends Controller
     {
         $data = SertifikatDesainGrafis::findOrFail($id);
         return view('admin.sertifikat.desain_grafis.cetak-nilai', ['data' => $data]);
+    }
+
+    function print_depan($id)
+    {
+        $data = SertifikatDesainGrafis::findOrFail($id);
+        return view('admin.sertifikat.desain_grafis.cetak-print-depan', ['data' => $data]);
     }
 }

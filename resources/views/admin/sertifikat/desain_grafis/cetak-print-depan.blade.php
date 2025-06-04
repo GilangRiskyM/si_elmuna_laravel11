@@ -11,7 +11,7 @@
     <style>
         /* CSS untuk background gambar */
         .background-custom {
-            background-image: url("{{ asset('asset/img/sertifikat.jpg') }}");
+            /* background-image: url("{{ asset('asset/img/sertifikat.jpg') }}"); */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

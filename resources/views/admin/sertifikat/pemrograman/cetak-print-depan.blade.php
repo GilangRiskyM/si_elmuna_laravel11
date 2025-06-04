@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('/asset/img/icon1.png') }}" type="image/x-icon">
-    <title>Elmuna | Cetak Sertifikat Desain Grafis</title>
+    <title>Elmuna | Cetak Sertifikat Pemrograman</title>
     <link rel="stylesheet" href="{{ url('/bootstrap-5.1.3-dist/css/bootstrap.min.css') }}" />
     <style>
         /* CSS untuk background gambar */
         .background-custom {
-            background-image: url("{{ asset('asset/img/sertifikat.jpg') }}");
+            /* background-image: url("{{ asset('asset/img/sertifikat.jpg') }}"); */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -126,7 +126,7 @@
                     </table>
                     </p>
                     <div class="telah">
-                        <p>Telah Menyelesaikan Pendidikan Desain Grafis Program {{ $data->program }}</p>
+                        <p>Telah Menyelesaikan Pendidikan Pemrograman Program {{ $data->program }}</p>
                         <p>yang diselenggarakan oleh LKP ELMUNA dari tanggal
                             {{ $data->tgl_mulai->isoFormat('D MMMM Y') }}
                             sampai

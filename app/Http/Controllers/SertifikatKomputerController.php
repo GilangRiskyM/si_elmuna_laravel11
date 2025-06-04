@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Komputer;
 use Illuminate\Http\Request;
 use App\Models\SertifikatKomputer;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
 
@@ -97,5 +96,11 @@ class SertifikatKomputerController extends Controller
     {
         $data = SertifikatKomputer::findOrFail($id);
         return view('admin.sertifikat.komputer.cetak-nilai', ['data' => $data]);
+    }
+
+    function print_depan($id)
+    {
+        $data = SertifikatKomputer::findOrFail($id);
+        return view('admin.sertifikat.komputer.cetak-print-depan', ['data' => $data]);
     }
 }

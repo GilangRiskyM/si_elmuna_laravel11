@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Mengemudi;
 use Illuminate\Http\Request;
 use App\Models\SertifikatMengemudi;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
 
@@ -97,5 +96,11 @@ class SertifikatMengemudiController extends Controller
     {
         $data = SertifikatMengemudi::findOrFail($id);
         return view('admin.sertifikat.mengemudi.cetak-nilai', ['data' => $data]);
+    }
+
+    function print_depan($id)
+    {
+        $data = SertifikatMengemudi::findOrFail($id);
+        return view('admin.sertifikat.mengemudi.cetak-print-depan', ['data' => $data]);
     }
 }

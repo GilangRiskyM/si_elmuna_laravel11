@@ -173,7 +173,11 @@
                                     <a href="{{ url('/sertifikat/video-editing-fotografi/edit/' . $datum->id) }}"
                                         class="btn btn-warning">Edit</a>
                                     <a href="{{ url('/sertifikat/video-editing-fotografi/cetak/' . $datum->id . '/sertifikat') }}"
-                                        target="_blank" class="btn btn-success my-2">Print Sertifikat</a>
+                                        target="_blank" class="btn btn-success my-2">Print Sertifikat PDF</a>
+                                    <a href="{{ url('/sertifikat/video-editing-fotografi/cetak/' . $datum->id . '/print-depan') }}"
+                                        target="_blank" class="btn btn-success mb-2">
+                                        Print Sertifikat
+                                    </a>
                                     <a href="{{ url('/sertifikat/video-editing-fotografi/cetak/' . $datum->id . '/nilai') }}"
                                         target="_blank" class="btn btn-success">Print Nilai</a>
                                     <a href="{{ url('/sertifikat/video-editing-fotografi/hapus/' . $datum->id) }}"

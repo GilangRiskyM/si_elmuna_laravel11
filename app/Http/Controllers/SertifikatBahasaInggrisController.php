@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use App\Models\BahasaInggris;
 use App\Models\SertifikatBahasaInggris;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\VideoFoto;
 use Illuminate\Http\Request;
 use App\Models\SertifikatVideoFoto;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\EditSertifikatRequest;
 use App\Http\Requests\TambahSertifikatRequest;
 
@@ -96,5 +95,11 @@ class SertifikatVideoFotoController extends Controller
     {
         $data = SertifikatVideoFoto::findOrFail($id);
         return view('admin.sertifikat.video_editing_fotografi.cetak-nilai', ['data' => $data]);
+    }
+
+    function print_depan($id)
+    {
+        $data = SertifikatVideoFoto::findOrFail($id);
+        return view('admin.sertifikat.video_editing_fotografi.cetak-print-depan', ['data' => $data]);
     }
 }
