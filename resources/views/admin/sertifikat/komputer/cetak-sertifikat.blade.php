@@ -57,6 +57,8 @@
         .tanda_tangan {
             margin-top: 3px;
             margin-bottom: 5px;
+            width: 15mm;
+            height: 15mm;
         }
 
         .nama_direk {
@@ -115,7 +117,7 @@
                         <tr>
                             <td>Tempat, tanggal lahir</td>
                             <td> &nbsp;:&nbsp; </td>
-                            <td>{{ $data->tempat_lahir }}, {{ $data->tanggal_lahir->isoFormat('D MMMM Y') }}</td>
+                            <td>{{ $data->tempat_lahir }}, {{ $data->tanggal_lahir->isoFormat('DD MMMM Y') }}</td>
                         </tr>
                         <tr>
                             <td>Nomor Induk Siswa</td>
@@ -128,9 +130,9 @@
                     <div class="telah">
                         <p>Telah Menyelesaikan Pendidikan Komputer Program {{ $data->program }}</p>
                         <p>yang diselenggarakan oleh LKP ELMUNA dari tanggal
-                            {{ $data->tgl_mulai->isoFormat('D MMMM Y') }}
+                            {{ $data->tgl_mulai->isoFormat('DD MMMM Y') }}
                             sampai
-                            {{ $data->tgl_selesai->isoFormat('D MMMM Y') }}
+                            {{ $data->tgl_selesai->isoFormat('DD MMMM Y') }}
                         </p>
                         <p>dan dinyatakan : LULUS</p>
                     </div>
@@ -140,10 +142,9 @@
             <div class="col-md-2 foto"></div>
             <div class="col-md-4 mb-5 mbuh">
                 <center>
-                    <p>Kebumen, {{ now()->isoFormat('dddd, D MMMM Y') }}</p>
+                    <p>Kebumen, {{ now()->isoFormat('dddd, DD MMMM Y') }}</p>
                     <p>LKP ELMUNA</p>
-                    <img src="{{ asset('/asset/img/qr-code-muhdori-plus-logo.png') }}" alt="" width="20%"
-                        class="tanda_tangan">
+                    <img src="{{ asset('asset/img/qr.png') }}" alt="" class="tanda_tangan">
                     <p class="nama_direk"><b><u>MUHDORI, A. Md. T., S. Tr. Kom</u></b></p>
                     <p class="direk">DIREKTUR</p>
                 </center>

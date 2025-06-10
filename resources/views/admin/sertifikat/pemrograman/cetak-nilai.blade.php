@@ -304,7 +304,7 @@
                             <div class="tanda-tangan">
                                 <center>
                                     <p>
-                                        Kebumen, {{ now()->isoFormat('D MMMM Y') }}<br />
+                                        Kebumen, {{ now()->isoFormat('DD MMMM Y') }}<br />
                                         Bagian Akademik
                                     </p>
                                     <img src="{{ asset('/asset/img/tanda_tangan-2.png') }}" alt=""
